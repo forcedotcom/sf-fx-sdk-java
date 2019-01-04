@@ -1,0 +1,10 @@
+target
+.DS_Store
+.vscode
+.project
+.classpath
+.settings
+repo
+/.metadata/
+.sfdx
+credentials.properties

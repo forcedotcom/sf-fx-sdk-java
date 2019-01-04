@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<jaxb:bindings version="2.1"
+  xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance"
+  jaxb:extensionBindingPrefixes="xjc inheritance">
+    <jaxb:bindings>
+        <jaxb:globalBindings typesafeEnumMaxMembers="1024" generateElementProperty="false"/>
+    </jaxb:bindings>
+
+    <!--<jaxb:bindings schemaLocation="enterprise-orig.wsdl#types1" node="//xsd:complexType[@name='sObject']">
+        <jaxb:class implClass="com.salesforce.function.api.model.impl.SObjectImpl" />
+        <inheritance:implements>com.salesforce.function.api.model.SObject</inheritance:implements>
+    </jaxb:bindings>-->
+</jaxb:bindings>
