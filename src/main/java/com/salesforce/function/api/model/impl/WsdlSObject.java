@@ -20,7 +20,7 @@ import com.salesforce.function.api.model.SObjectType;
  *         &lt;/appinfo&gt;<br/>
  *     &lt;/annotation&gt;<br/>
  * &lt;/complexType&gt;<br/>
- * 
+ *
  * &lt;!-- Base sObject (abstract) --&gt;<br/>
  * &lt;complexType name="sObject"&gt;<br/>
  * &lt;complexContent&gt;<br/>
@@ -69,6 +69,11 @@ public class WsdlSObject extends SObjectImpl {
                 if (isFieldGetter(sforceClass, method)) {
                     String name = method.getName().startsWith("get") ? method.getName().substring(3)
                             : method.getName().substring(2);
+                    // REVIEWME: Per comment below probably best to use the WSDL class XML propery annotations to determine this
+                    String fieldName =
+                        // Getters representing custom fields are suffixed with R or C
+                        name.endsWith("C") || name.endsWith("R") ?
+                            name.substring(0, name.length()-1) + "__c" : name;
                     Object value = method.invoke(this);
                     // REVIEWME: this isn't right, eg for prop was set to null; need to figure out a better
                     // strategy, eg setSendNullValues(true)
@@ -76,7 +81,25 @@ public class WsdlSObject extends SObjectImpl {
                         if (value instanceof WsdlSObject) {
                             // Reduce any complex relationships to their id. For instance if the user has called
                             // Contact#setAccount, replace the pair {Account,account} with {AccountId/account#getFkId()}
-                            Method getIdMethod = sforceClass.getMethod(method.getName() + "Id");
+                            Method getIdMethod = null;
+                            String methodName = method.getName();
+                            try {
+                                // Id suffixed getters are a convention of standard object lookup field naming conventions
+                                getIdMethod = sforceClass.getMethod(methodName + "Id");
+                                // Also assume above convention when determing field name for standard field lookups
+                                fieldName = fieldName + "Id";
+                            } catch (NoSuchMethodException e) {
+                                // REVIEWME: need a better way to discover Id getters
+                                // No such getter method? This is possibly a custom field lookup relationship?
+                                if (methodName.endsWith("R")) {
+                                    // If so the Id method is suffixed by wsdl2java with 'C' not 'Id'
+                                    String customObjLookupIdGetter = methodName.substring(0,methodName.length()-1) + "C";
+                                    getIdMethod = sforceClass.getMethod(customObjLookupIdGetter);
+                                } else {
+                                    // Unable to determine the ID getter
+                                    throw new RuntimeException(String.format("Unable to deterimine the Id getter method for '%s'", methodName), e);
+                                }
+                            }
                             String id = (String)getIdMethod.invoke(this);
                             if (id != null) {
                                 String objectSetterName = getSObjectType() + "#set" + name;
@@ -85,9 +108,9 @@ public class WsdlSObject extends SObjectImpl {
                                         "You can't set a relationship using the both '%s' and '%s'. Call one of these methods to set the value back to null.",
                                         objectSetterName, idSetterName));
                             }
-                            values.put(name + "Id", ((WsdlSObject)value).getFkId());
+                            values.put(fieldName, ((WsdlSObject)value).getFkId());
                         } else {
-                            values.put(name, value);
+                            values.put(fieldName, value);
                         }
                     }
                 }

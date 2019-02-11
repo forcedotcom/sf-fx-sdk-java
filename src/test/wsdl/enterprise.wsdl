@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Salesforce.com Enterprise Web Services API Version 45.0
-Generated on 2018-12-06 21:42:11 +0000.
+Generated on 2019-02-11 14:30:47 +0000.
 
-Copyright 1999-2018 salesforce.com, inc.
+Copyright 1999-2019 salesforce.com, inc.
 All Rights Reserved
 -->
 
@@ -116,6 +116,8 @@ All Rights Reserved
                         <element name="Fax" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="Feeds" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Golf_Course__c" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="Golf_Course__r" nillable="true" minOccurs="0" type="ens:Golf_Course__c"/>
                         <element name="Histories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="Industry" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
@@ -133,6 +135,7 @@ All Rights Reserved
                         <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="Notes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="NotesAndAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Notes__c" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="NumberOfEmployees" nillable="true" minOccurs="0" type="xsd:int"/>
                         <element name="OpenActivities" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="Opportunities" nillable="true" minOccurs="0" type="tns:QueryResult"/>
@@ -354,123 +357,6 @@ All Rights Reserved
                         <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
                         <element name="UserAlias" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="UserVisibility" nillable="true" minOccurs="0" type="xsd:string"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ActiveScratchOrg">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AttachedContentDocuments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="CombinedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ContentDocumentLinks" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Description" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Edition" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ExpirationDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="Features" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Feeds" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="HasSampleData" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="Histories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastLoginDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LastReferencedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LastViewedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Namespace" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="OrgName" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Owner" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="OwnerId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="ProcessInstances" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ProcessSteps" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ScratchOrg" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ScratchOrgInfo" nillable="true" minOccurs="0" type="ens:ScratchOrgInfo"/>
-                        <element name="ScratchOrgInfoId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="SignupEmail" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupInstance" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupTrialDays" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SignupUsername" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ActiveScratchOrgFeed">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="BestComment" nillable="true" minOccurs="0" type="ens:FeedComment"/>
-                        <element name="BestCommentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="Body" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="CommentCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="FeedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedComments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedLikes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedSignals" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedTrackedChanges" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="InsertedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="InsertedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="IsRichText" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LikeCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="LinkUrl" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Parent" nillable="true" minOccurs="0" type="ens:ActiveScratchOrg"/>
-                        <element name="ParentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="RelatedRecordId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Title" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Type" nillable="true" minOccurs="0" type="xsd:string"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ActiveScratchOrgHistory">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="ActiveScratchOrg" nillable="true" minOccurs="0" type="ens:ActiveScratchOrg"/>
-                        <element name="ActiveScratchOrgId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Field" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="NewValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
-                        <element name="OldValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ActiveScratchOrgShare">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AccessLevel" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Parent" nillable="true" minOccurs="0" type="ens:ActiveScratchOrg"/>
-                        <element name="ParentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="RowCause" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="UserOrGroup" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="UserOrGroupId" nillable="true" minOccurs="0" type="tns:ID"/>
                         </sequence>
                     </extension>
                 </complexContent>
@@ -5816,9 +5702,6 @@ All Rights Reserved
                         <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
                         <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
                         <element name="LookedUpFromActivities" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Mulesoft_Organization_Id__c" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Mulesoft_Password__c" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Mulesoft_Username__c" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="ProcessInstances" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="ProcessSteps" nillable="true" minOccurs="0" type="tns:QueryResult"/>
@@ -5827,6 +5710,46 @@ All Rights Reserved
                         <element name="RecordAssociatedGroups" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="SetupOwner" nillable="true" minOccurs="0" type="ens:Name"/>
                         <element name="SetupOwnerId" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="TopicAssignments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
+            <complexType name="Golf_Course__c">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                        <element name="Accounts__r" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="AttachedContentDocuments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Attachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="CombinedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ContactRequests" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ContentDocumentLinks" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="Designer__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="DuplicateRecordItems" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Emails" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
+                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="LookedUpFromActivities" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Notes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="NotesAndAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Owner" nillable="true" minOccurs="0" type="ens:Name"/>
+                        <element name="OwnerId" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="ProcessInstances" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ProcessSteps" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordActionHistories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordActions" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordAssociatedGroups" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
                         <element name="TopicAssignments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
@@ -6374,94 +6297,6 @@ All Rights Reserved
                 </complexContent>
             </complexType>
 
-            <complexType name="LightningToggleMetrics">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="Action" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="MetricsDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="RecordCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="User" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="UserId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="LightningUsageByAppTypeMetrics">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AppExperience" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="MetricsDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="User" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="UserId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="LightningUsageByBrowserMetrics">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="Browser" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="EptBin3To5" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBin5To8" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBin8To10" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBinOver10" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBinUnder3" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="MetricsDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="PageName" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="RecordCountEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SumEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="TotalCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="LightningUsageByFlexiPageMetrics">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="FlexiPageNameOrId" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="FlexiPageType" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="MetricsDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="RecordCountEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SumEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="TotalCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="LightningUsageByPageMetrics">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="EptBin3To5" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBin5To8" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBin8To10" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBinOver10" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="EptBinUnder3" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="MetricsDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="PageName" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="RecordCountEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SumEPT" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="TotalCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="User" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="UserId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
             <complexType name="ListEmail">
                 <complexContent>
                     <extension base="ens:sObject">
@@ -6925,85 +6760,6 @@ All Rights Reserved
                         <element name="SetupEntityAccessItems" nillable="true" minOccurs="0" type="tns:QueryResult"/>
                         <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
                         <element name="UserAuths" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="NamespaceRegistry">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AttachedContentDocuments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="CombinedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ContentDocumentLinks" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Feeds" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Histories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="NamespaceOrg" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="NamespacePrefix" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="NamespaceRegistryFeed">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="BestComment" nillable="true" minOccurs="0" type="ens:FeedComment"/>
-                        <element name="BestCommentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="Body" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="CommentCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="FeedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedComments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedLikes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedSignals" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedTrackedChanges" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="InsertedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="InsertedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="IsRichText" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LikeCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="LinkUrl" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Parent" nillable="true" minOccurs="0" type="ens:NamespaceRegistry"/>
-                        <element name="ParentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="RelatedRecordId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Title" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Type" nillable="true" minOccurs="0" type="xsd:string"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="NamespaceRegistryHistory">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Field" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="NamespaceRegistry" nillable="true" minOccurs="0" type="ens:NamespaceRegistry"/>
-                        <element name="NamespaceRegistryId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="NewValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
-                        <element name="OldValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
                         </sequence>
                     </extension>
                 </complexContent>
@@ -7941,6 +7697,76 @@ All Rights Reserved
                 </complexContent>
             </complexType>
 
+            <complexType name="PDF_Create_Invoke__e">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                        <element name="Context__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="Id__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="PDF__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Page__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="ReplayId" nillable="true" minOccurs="0" type="xsd:string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
+            <complexType name="PDF_Create_Result__e">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="Message__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="ReplayId" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Success__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
+            <complexType name="PDF__c">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                        <element name="AttachedContentDocuments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Attachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="CombinedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ContactRequests" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ContentDocumentLinks" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="DuplicateRecordItems" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Emails" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
+                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
+                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="LookedUpFromActivities" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Notes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="NotesAndAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="Owner" nillable="true" minOccurs="0" type="ens:Name"/>
+                        <element name="OwnerId" nillable="true" minOccurs="0" type="tns:ID"/>
+                        <element name="ProcessInstances" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="ProcessSteps" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordActionHistories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordActions" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="RecordAssociatedGroups" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+                        <element name="TopicAssignments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
+                        <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
             <complexType name="PackageLicense">
                 <complexContent>
                     <extension base="ens:sObject">
@@ -8193,7 +8019,6 @@ All Rights Reserved
                         <element name="PermissionsNewReportBuilder" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsOutboundMigrationToolsUser" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPackaging2" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="PermissionsPackaging2PromoteVersion" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPasswordNeverExpires" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPreventClassicExperience" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPrivacyDataAccess" nillable="true" minOccurs="0" type="xsd:boolean"/>
@@ -8425,7 +8250,6 @@ All Rights Reserved
                         <element name="MaximumPermissionsNewReportBuilder" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="MaximumPermissionsOutboundMigrationToolsUser" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="MaximumPermissionsPackaging2" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="MaximumPermissionsPackaging2PromoteVersion" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="MaximumPermissionsPasswordNeverExpires" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="MaximumPermissionsPreventClassicExperience" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="MaximumPermissionsPrivacyDataAccess" nillable="true" minOccurs="0" type="xsd:boolean"/>
@@ -9172,7 +8996,6 @@ All Rights Reserved
                         <element name="PermissionsNewReportBuilder" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsOutboundMigrationToolsUser" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPackaging2" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="PermissionsPackaging2PromoteVersion" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPasswordNeverExpires" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPreventClassicExperience" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPrivacyDataAccess" nillable="true" minOccurs="0" type="xsd:boolean"/>
@@ -9937,138 +9760,6 @@ All Rights Reserved
                         <element name="NamespacePrefix" nillable="true" minOccurs="0" type="xsd:string"/>
                         <element name="SupportsCaching" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ScratchOrgInfo">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AdminEmail" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="AttachedContentDocuments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="AuthCode" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="CombinedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ConnectedAppCallbackUrl" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ConnectedAppConsumerKey" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ContentDocumentLinks" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Country" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="DeletedBy" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="DeletedDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="Description" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="DurationDays" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="Edition" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ErrorCode" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ExpirationDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="Features" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="FeedSubscriptionsForEntity" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Feeds" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="HasSampleData" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="Histories" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="Instance" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="Language" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="LastLoginDate" nillable="true" minOccurs="0" type="xsd:date"/>
-                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LastReferencedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LastViewedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LoginUrl" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Namespace" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="OrgName" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Owner" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="OwnerId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="Package2AncestorIds" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="ProcessInstances" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ProcessSteps" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="ScratchOrg" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupCountry" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupEmail" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupInstance" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupLanguage" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SignupTrialDays" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="SignupUsername" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Status" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="UserRecordAccess" nillable="true" minOccurs="0" type="ens:UserRecordAccess"/>
-                        <element name="Username" nillable="true" minOccurs="0" type="xsd:string"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ScratchOrgInfoFeed">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="BestComment" nillable="true" minOccurs="0" type="ens:FeedComment"/>
-                        <element name="BestCommentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="Body" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="CommentCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="FeedAttachments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedComments" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedLikes" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedSignals" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="FeedTrackedChanges" nillable="true" minOccurs="0" type="tns:QueryResult"/>
-                        <element name="InsertedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="InsertedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="IsRichText" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="LikeCount" nillable="true" minOccurs="0" type="xsd:int"/>
-                        <element name="LinkUrl" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Parent" nillable="true" minOccurs="0" type="ens:ScratchOrgInfo"/>
-                        <element name="ParentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="RelatedRecordId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Title" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="Type" nillable="true" minOccurs="0" type="xsd:string"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ScratchOrgInfoHistory">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="CreatedBy" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="CreatedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Field" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="NewValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
-                        <element name="OldValue" nillable="true" minOccurs="0" type="xsd:anyType"/>
-                        <element name="ScratchOrgInfo" nillable="true" minOccurs="0" type="ens:ScratchOrgInfo"/>
-                        <element name="ScratchOrgInfoId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-
-            <complexType name="ScratchOrgInfoShare">
-                <complexContent>
-                    <extension base="ens:sObject">
-                        <sequence>
-                        <element name="AccessLevel" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="LastModifiedBy" nillable="true" minOccurs="0" type="ens:User"/>
-                        <element name="LastModifiedById" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
-                        <element name="Parent" nillable="true" minOccurs="0" type="ens:ScratchOrgInfo"/>
-                        <element name="ParentId" nillable="true" minOccurs="0" type="tns:ID"/>
-                        <element name="RowCause" nillable="true" minOccurs="0" type="xsd:string"/>
-                        <element name="UserOrGroup" nillable="true" minOccurs="0" type="ens:Name"/>
-                        <element name="UserOrGroupId" nillable="true" minOccurs="0" type="tns:ID"/>
                         </sequence>
                     </extension>
                 </complexContent>
@@ -11886,7 +11577,6 @@ All Rights Reserved
                         <element name="PermissionsNewReportBuilder" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsOutboundMigrationToolsUser" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPackaging2" nillable="true" minOccurs="0" type="xsd:boolean"/>
-                        <element name="PermissionsPackaging2PromoteVersion" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPasswordNeverExpires" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPreventClassicExperience" nillable="true" minOccurs="0" type="xsd:boolean"/>
                         <element name="PermissionsPrivacyDataAccess" nillable="true" minOccurs="0" type="xsd:boolean"/>
@@ -17635,6 +17325,16 @@ All Rights Reserved
 
 
 
+        <element name="CurrencyConversionHeader">
+            <complexType>
+                <sequence>
+                    <element name="skipCurrencyConversion" type="xsd:boolean" />
+                </sequence>
+            </complexType>
+        </element>
+
+
+
         <element name="DuplicateRuleHeader">
             <complexType>
                 <sequence>
@@ -17727,7 +17427,7 @@ All Rights Reserved
                     <enumeration value="TransferOwnedOpenOpportunities"/>
                     <enumeration value="TransferOwnedClosedOpportunities"/>
                     <enumeration value="TransferOwnedOpenCases"/>
-                    <enumeration value="TransferOwnedClosedCases"/>
+                    <enumeration value="TransferAllOwnedCases"/>
                     <enumeration value="TransferContracts"/>
                     <enumeration value="TransferOrders"/>
                     <enumeration value="TransferContacts"/>
@@ -20431,7 +20131,7 @@ All Rights Reserved
     <service name="SforceService">
         <documentation>Sforce SOAP API</documentation>
         <port binding="tns:SoapBinding" name="Soap">
-            <soap:address location="https://mobile2.t.salesforce.com/services/Soap/c/45.0"/>
+            <soap:address location="https://test.salesforce.com/services/Soap/c/45.0"/>
         </port>
     </service>
 </definitions>
