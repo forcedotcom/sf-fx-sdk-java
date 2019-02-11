@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.salesforce.function.api.model.*;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Implementation of {@link SObject}
  *
@@ -21,7 +23,10 @@ public abstract class SObjectImpl implements SObject {
 
     // used by wsdl2java to support sobject types in sdk
     public SObjectImpl() {
-        String tmpSobjectType = getClass().getSimpleName();
+        if (!getClass().isAnnotationPresent(XmlType.class)) {
+            throw new IllegalStateException("XmlType annotation is required");
+        }
+        String tmpSobjectType = ((XmlType)getClass().getAnnotation(XmlType.class)).name();
         this.uuid = UUID.randomUUID().toString();
         this.sobjectType = tmpSobjectType;
         this.values = new LinkedHashMap<>();
@@ -58,9 +63,9 @@ public abstract class SObjectImpl implements SObject {
     public Map<String, Object> getValues() {
         return Collections.unmodifiableMap(this.values);
     }
-    
+
     @SuppressWarnings("unchecked")
-    @Override 
+    @Override
     public <T> T getValue(String key) {
         return (T)values.get(key);
     }

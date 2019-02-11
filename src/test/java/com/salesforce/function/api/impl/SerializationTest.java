@@ -2,9 +2,7 @@ package com.salesforce.function.api.impl;
 
 import java.util.Collections;
 import java.util.List;
-
-import org.junit.*;
-import org.junit.rules.ExpectedException;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -16,6 +14,12 @@ import com.salesforce.function.api.model.SObjectType;
 import com.salesforce.function.util.Constants;
 import com.sforce.soap.enterprise.sobject.Account;
 import com.sforce.soap.enterprise.sobject.Contact;
+import com.sforce.soap.enterprise.sobject.GolfCourseC;
+
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 /**
  * Test various aspects of Jackson serialization/deserialization.
@@ -87,7 +91,7 @@ public class SerializationTest extends Assert {
         Contact deserializedContact = mapper.readValue(jsonValue, Contact.class);
         assertEquals(accountFkId, deserializedContact.getValues().get("AccountId"));
     }
-    
+
     /**
      * It's not legal to set a relationship using both an Id and Complex object. The user should use one or the other.
      */
@@ -108,5 +112,29 @@ public class SerializationTest extends Assert {
         thrown.expectMessage("You can't set a relationship using the both 'Contact#setAccount' and 'Contact#setAccountId'. Call one of these methods to set the value back to null.");
 
         contact.getValues();
+    }
+
+    /**
+     * Validate Custom Object and Custom Field support.
+     */
+    @Test
+    public void testCustomObjectField() {
+        String golfCourseId = "999B0000004ifUOIAY";
+        String golfCourseName = "GolfCourse - " + System.currentTimeMillis();
+        GolfCourseC golfCourse = new GolfCourseC();
+        golfCourse.setId(golfCourseId);
+        golfCourse.setName(golfCourseName);
+        Map<String, Object> values = golfCourse.getValues();
+        assertTrue(values != null && !values.isEmpty());
+        assertTrue(golfCourseId.equals(values.get("Id")));
+        assertTrue(golfCourseName.equals(values.get("Name")));
+
+        String accountName = "Account With Custom Field - " + System.currentTimeMillis();
+        Account account = new Account();
+        account.setName(accountName);
+        account.setGolfCourseR(golfCourse);
+        values = account.getValues();
+        assertTrue(values != null && !values.isEmpty());
+        assertTrue(golfCourseId.equals(values.get("GolfCourse__c")));
     }
 }
