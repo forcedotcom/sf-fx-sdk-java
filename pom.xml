@@ -34,7 +34,7 @@
         <sf.fx.runtime.version>${project.version}</sf.fx.runtime.version>
 
         <!-- Dependency Versions -->
-        <com.fasterxml.jackson.version>2.9.7</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.10.0</com.fasterxml.jackson.version>
         <com.force.api.version>44.0.0</com.force.api.version>
         <com.google.guava.guava.version>23.0</com.google.guava.guava.version>
         <commons-io.version>2.5</commons-io.version>
@@ -190,7 +190,7 @@
                 <version>1.4.1</version>
                 <configuration>
                     <rules>
-                        <dependencyConvergence />
+                        <dependencyConvergence/>
                     </rules>
                 </configuration>
                 <executions>
