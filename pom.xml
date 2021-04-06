@@ -6,9 +6,28 @@
 
     <groupId>com.salesforce.functions</groupId>
     <artifactId>sf-fx-sdk-java</artifactId>
-    <version>0.4.0-SNAPSHOT</version>
+    <version>0.1.0-ea</version>
 
     <name>sf-fx-sdk-java</name>
+    <description>Salesforce Function SDK for Java</description>
+    <url>https://github.com/forcedotcom/sf-fx-sdk-java</url>
+
+    <licenses>
+        <license>
+            <name>BSD-3-Clause</name>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/forcedotcom/sf-fx-sdk-java.git</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Manuel Fuchs</name>
+            <organization>salesforce.com, inc.</organization>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,13 +51,6 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <extensions>
-            <extension>
-                <groupId>com.gkatzioura.maven.cloud</groupId>
-                <artifactId>s3-storage-wagon</artifactId>
-                <version>2.1</version>
-            </extension>
-        </extensions>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -90,17 +102,51 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <distributionManagement>
         <snapshotRepository>
-            <id>sf-fx-java-s3</id>
-            <url>s3://sf-fx-java-internal-early-access/snapshot</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
-        <repository>
-            <id>sf-fx-java-s3</id>
-            <url>s3://sf-fx-java-internal-early-access/release</url>
-        </repository>
     </distributionManagement>
 </project>
