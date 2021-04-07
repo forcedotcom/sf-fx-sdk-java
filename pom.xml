@@ -196,4 +196,20 @@
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+    <reporting>
+        <plugins>
+          <plugin>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>3.0.0</version>
+          </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                  <nonavbar>True</nonavbar>
+                  <stylesheet>maven</stylesheet>
+              </configuration>
+            </plugin>
+        </plugins>
+      </reporting>
 </project>
