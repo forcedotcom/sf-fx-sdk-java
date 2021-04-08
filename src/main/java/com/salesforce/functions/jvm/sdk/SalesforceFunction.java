@@ -11,8 +11,8 @@ import java.util.function.BiFunction;
 /**
  * Main interface for Salesforce Functions written in Java.
  *
- * @param <T> The type of the {@link InvocationEvent} payload this function can handle.
- * @param <R> The type of the response of this function.
+ * @param <T> The type of payload {@link InvocationEvent}.
+ * @param <R> The type of the response.
  */
 @SuppressWarnings("unused")
 public interface SalesforceFunction<T, R> extends BiFunction<InvocationEvent<T>, Context, R> {

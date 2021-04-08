@@ -10,48 +10,34 @@ import com.salesforce.functions.jvm.sdk.data.DataApi;
 import java.net.URI;
 import javax.annotation.Nonnull;
 
-/** Holds information about the invoking Salesforce organization and user in Customer 360. */
+/** Represents the invoking Salesforce organization and user in Customer 360. */
 public interface Org {
-  /**
-   * Returns the Salesforce organization ID.
-   *
-   * @return The Salesforce organization ID.
-   */
+  /** Returns the Salesforce Org ID. */
   @Nonnull
   @SuppressWarnings("unused")
   String getId();
 
-  /**
-   * Returns the base URL of the Salesforce organization.
-   *
-   * @return The base URL of the Salesforce organization.
-   */
+  /** Returns the base URL of the Salesforce org. */
   @Nonnull
   @SuppressWarnings("unused")
   URI getBaseUrl();
 
-  /**
-   * Returns the domain URL of the Salesforce organization.
-   *
-   * @return The domain URL of the Salesforce organization.
-   */
+  /** Returns the domain URL of the Salesforce org. */
   @Nonnull
   @SuppressWarnings("unused")
   URI getDomainUrl();
 
-  /**
-   * Returns the API version the Salesforce organization is currently using.
-   *
-   * @return The API version the Salesforce organization is currently using.
-   */
+  /** Returns the API version the Salesforce org is on. */
   @Nonnull
   @SuppressWarnings("unused")
   String getApiVersion();
 
+  /** Returns the API version the Salesforce org is on. */
   @Nonnull
   @SuppressWarnings("unused")
   DataApi getDataApi();
 
+  /** Returns the currently logged in user. */
   @Nonnull
   @SuppressWarnings("unused")
   User getUser();

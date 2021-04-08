@@ -9,22 +9,14 @@ package com.salesforce.functions.jvm.sdk;
 import java.util.Optional;
 import javax.annotation.Nonnull;
 
-/** Holds information about the invoking Salesforce user in Customer 360. */
+/** Represents the Salesforce user in Customer 360 who is invoking the function. */
 public interface User {
-  /**
-   * Returns the user's ID.
-   *
-   * @return The user's ID.
-   */
+  /** Returns the user ID. */
   @Nonnull
   @SuppressWarnings("unused")
   String getId();
 
-  /**
-   * Returns the name of the user.
-   *
-   * @return The name of the user.
-   */
+  /** Returns the username. */
   @Nonnull
   @SuppressWarnings("unused")
   String getUsername();

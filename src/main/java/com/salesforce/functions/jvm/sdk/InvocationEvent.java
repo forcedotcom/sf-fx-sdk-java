@@ -12,19 +12,12 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 /**
- * An Event is representative of the data associated with the occurrence of an event, and supporting
- * metadata about the source of that occurrence.
+ * Represents a Salesforce Function invocation event.
  *
  * @param <T> The type of the payload of this event.
  */
 public interface InvocationEvent<T> {
-  /**
-   * Returns the platform event occurrence id for event invocation.
-   *
-   * @return The platform event occurrence id for event invocation.
-   * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#id">CloudEvent
-   *     Specification</a>
-   */
+  /** Returns the platform event occurrence id for event invocation. */
   @Nonnull
   @SuppressWarnings("unused")
   String getId();
@@ -32,33 +25,21 @@ public interface InvocationEvent<T> {
   /**
    * Returns a value describing the type of invocation. The format of this is producer defined and
    * might include information such as the version of the type.
-   *
-   * @return A string describing the type of invocation.
-   * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#type">CloudEvent
-   *     Specification</a>
    */
   @Nonnull
   @SuppressWarnings("unused")
   String getType();
 
   /**
-   * Returns an URI which Identifies the context in which an event happened. Often this will include
-   * information such as the type of the event source, the organization publishing the event or the
-   * process that produced the event.
-   *
-   * @return An URI which Identifies the context in which an event happened.
-   * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1">CloudEvent
-   *     Specification</a>
+   * Returns an URI that Identifies the context for the event. This includes information such as the
+   * type of the event source, the org publishing the event, and the process that produced the
+   * event.
    */
   @Nonnull
   @SuppressWarnings("unused")
   URI getSource();
 
-  /**
-   * Returns the unmarshalled payload of the event.
-   *
-   * @return The payload of the event.
-   */
+  /** Returns the payload of the event. */
   @Nonnull
   @SuppressWarnings("unused")
   T getData();
@@ -72,7 +53,6 @@ public interface InvocationEvent<T> {
    * very useful. When using raw bytes (by using byte[] for T), this value can be used to drive your
    * custom unmarshalling process.
    *
-   * @return The media type of the event payload.
    * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#datacontenttype">CloudEvent
    *     Specification</a>
    */
@@ -83,7 +63,6 @@ public interface InvocationEvent<T> {
   /**
    * Returns the schema that the event payload adheres to.
    *
-   * @return The schema that the event payload adheres to.
    * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#dataschema">CloudEvent
    *     Specification</a>
    */
@@ -92,15 +71,10 @@ public interface InvocationEvent<T> {
   Optional<URI> getDataSchema();
 
   /**
-   * Returns the timestamp of when the occurrence happened. If the time of the occurrence cannot be
-   * determined then this attribute may be set to some other time (such as the current time),
-   * however all producers for the same source must be consistent in this respect. In other words,
-   * either they all use the actual time of the occurrence or they all use the same algorithm to
-   * determine the value used.
+   * Returns the timestamp of the event occurrence.
    *
    * <p>{@link InvocationEvent#getSource}
    *
-   * @return The timestamp of when the occurrence happened
    * @see <a href="https://github.com/cloudevents/spec/blob/v1.0/spec.md#time">CloudEvent
    *     Specification</a>
    */
