@@ -24,13 +24,13 @@ public interface DataApi {
     UnitOfWork newUnitOfWork();
 
     /**
-     * Creates a new {@link RecordInsert} for the given object type.
+     * Creates a new {@link RecordCreate} for the given object type.
      *
-     * @param type The type of record to insert.
-     * @return a new {@link RecordInsert}
+     * @param type The type of record to create.
+     * @return a new {@link RecordCreate}
      */
     @Nonnull
-    RecordInsert newRecordInsert(String type);
+    RecordCreate newRecordCreate(String type);
 
     /**
      * Creates a new {@link RecordUpdate} for the given object type and record id.
@@ -45,8 +45,8 @@ public interface DataApi {
     /**
      * Commits a {@link UnitOfWork}, executing all operations registered with it. If any of these operations fail, the
      * whole unit is rolled back. To examine results for a single operation, inspect the returned map (which is keyed
-     * with {@link ReferenceId} returned from {@link UnitOfWork#insert(RecordInsert)} and
-     * {@link UnitOfWork#update(RecordUpdate)}.
+     * with {@link ReferenceId} returned from {@link UnitOfWork#registerCreate(RecordCreate)} and
+     * {@link UnitOfWork#registerUpdate(RecordUpdate)}.
      *
      * @param unitOfWork The {@link UnitOfWork} to commit.
      * @return A map of {@link RecordModificationResult}s.
@@ -56,14 +56,14 @@ public interface DataApi {
     Map<ReferenceId, RecordModificationResult> commitUnitOfWork(UnitOfWork unitOfWork) throws IOException;
 
     /**
-     * Inserts a new record described by the given {@link RecordInsert}.
+     * Creates a new record described by the given {@link RecordCreate}.
      *
-     * @param insert The record insert description. Must be obtained via {@link #newRecordInsert(String)}.
+     * @param create The record creation description. Must be obtained via {@link #newRecordCreate(String)}.
      * @return
      * @throws IOException If an IO related error occurred.
      */
     @Nonnull
-    RecordModificationResult insert(RecordInsert insert) throws IOException;
+    RecordModificationResult create(RecordCreate create) throws IOException;
 
     /**
      * Updates an existing record described by the given {@link RecordUpdate}.

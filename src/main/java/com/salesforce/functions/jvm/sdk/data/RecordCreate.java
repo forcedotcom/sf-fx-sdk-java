@@ -9,7 +9,7 @@ package com.salesforce.functions.jvm.sdk.data;
 
 import javax.annotation.Nonnull;
 
-public interface RecordInsert extends RecordModification<RecordInsert> {
+public interface RecordCreate extends RecordModification<RecordCreate> {
     @Nonnull
     String getType();
 }
