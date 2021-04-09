@@ -4,52 +4,55 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-
 package com.salesforce.functions.jvm.sdk;
 
 import com.salesforce.functions.jvm.sdk.data.DataApi;
-
-import javax.annotation.Nonnull;
 import java.net.URI;
+import javax.annotation.Nonnull;
 
-/**
- * Holds information about the invoking Salesforce organization and user in Customer 360.
- */
+/** Holds information about the invoking Salesforce organization and user in Customer 360. */
 public interface Org {
-    /**
-     * Returns the Salesforce organization ID.
-     *
-     * @return The Salesforce organization ID.
-     */
-    @Nonnull
-    String getId();
+  /**
+   * Returns the Salesforce organization ID.
+   *
+   * @return The Salesforce organization ID.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  String getId();
 
-    /**
-     * Returns the base URL of the Salesforce organization.
-     *
-     * @return The base URL of the Salesforce organization.
-     */
-    @Nonnull
-    URI getBaseUrl();
+  /**
+   * Returns the base URL of the Salesforce organization.
+   *
+   * @return The base URL of the Salesforce organization.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  URI getBaseUrl();
 
-    /**
-     * Returns the domain URL of the Salesforce organization.
-     *
-     * @return The domain URL of the Salesforce organization.
-     */
-    @Nonnull
-    URI getDomainUrl();
+  /**
+   * Returns the domain URL of the Salesforce organization.
+   *
+   * @return The domain URL of the Salesforce organization.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  URI getDomainUrl();
 
-    /**
-     * Returns the API version the Salesforce organization is currently using.
-     *
-     * @return The API version the Salesforce organization is currently using.
-     */
-    String getApiVersion();
+  /**
+   * Returns the API version the Salesforce organization is currently using.
+   *
+   * @return The API version the Salesforce organization is currently using.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  String getApiVersion();
 
-    @Nonnull
-    DataApi getDataApi();
+  @Nonnull
+  @SuppressWarnings("unused")
+  DataApi getDataApi();
 
-    @Nonnull
-    User getUser();
+  @Nonnull
+  @SuppressWarnings("unused")
+  User getUser();
 }
