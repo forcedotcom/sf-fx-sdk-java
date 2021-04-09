@@ -13,41 +13,41 @@ import java.math.BigInteger;
 
 public interface RecordModification<T extends RecordModification<T>> {
     @Nonnull
-    T setStringValue(String key, String value);
+    T setValue(String key, String value);
 
     @Nonnull
-    T setShortValue(String key, short value);
+    T setValue(String key, short value);
 
     @Nonnull
-    T setNumberValue(String key, Number value);
+    T setValue(String key, Number value);
 
     @Nonnull
-    T setLongValue(String key, long value);
+    T setValue(String key, long value);
 
     @Nonnull
-    T setIntValue(String key, int value);
+    T setValue(String key, int value);
 
     @Nonnull
-    T setFloatValue(String key, float value);
+    T setValue(String key, float value);
 
     @Nonnull
-    T setDoubleValue(String key, double value);
+    T setValue(String key, double value);
 
     @Nonnull
-    T setCharacterValue(String key, char value);
+    T setValue(String key, char value);
 
     @Nonnull
-    T setByteValue(String key, byte value);
+    T setValue(String key, byte value);
 
     @Nonnull
-    T setBooleanValue(String key, boolean value);
+    T setValue(String key, boolean value);
 
     @Nonnull
-    T setBigIntegerValue(String key, BigInteger value);
+    T setValue(String key, BigInteger value);
 
     @Nonnull
-    T setBigDecimalValue(String key, BigDecimal value);
+    T setValue(String key, BigDecimal value);
 
     @Nonnull
-    T setReferenceIdValue(String key, ReferenceId fkId);
+    T setValue(String key, ReferenceId fkId);
 }
