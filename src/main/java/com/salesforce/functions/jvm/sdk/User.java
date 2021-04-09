@@ -4,32 +4,32 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-
 package com.salesforce.functions.jvm.sdk;
 
-import javax.annotation.Nonnull;
 import java.util.Optional;
+import javax.annotation.Nonnull;
 
-/**
- * Holds information about the invoking Salesforce user in Customer 360.
- */
+/** Holds information about the invoking Salesforce user in Customer 360. */
 public interface User {
-    /**
-     * Returns the user's ID.
-     *
-     * @return The user's ID.
-     */
-    @Nonnull
-    String getId();
+  /**
+   * Returns the user's ID.
+   *
+   * @return The user's ID.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  String getId();
 
-    /**
-     * Returns the name of the user.
-     *
-     * @return The name of the user.
-     */
-    @Nonnull
-    String getUsername();
+  /**
+   * Returns the name of the user.
+   *
+   * @return The name of the user.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  String getUsername();
 
-    @Nonnull
-    Optional<String> getOnBehalfOfUserId();
+  @Nonnull
+  @SuppressWarnings("unused")
+  Optional<String> getOnBehalfOfUserId();
 }

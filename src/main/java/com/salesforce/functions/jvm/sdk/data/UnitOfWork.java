@@ -9,9 +9,11 @@ package com.salesforce.functions.jvm.sdk.data;
 import javax.annotation.Nonnull;
 
 public interface UnitOfWork {
-    @Nonnull
-    ReferenceId registerCreate(RecordCreate create);
+  @Nonnull
+  @SuppressWarnings("unused")
+  ReferenceId registerCreate(RecordCreate create);
 
-    @Nonnull
-    ReferenceId registerUpdate(RecordUpdate update);
+  @Nonnull
+  @SuppressWarnings("unused")
+  ReferenceId registerUpdate(RecordUpdate update);
 }
