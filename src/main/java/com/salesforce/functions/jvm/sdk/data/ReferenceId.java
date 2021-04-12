@@ -6,10 +6,9 @@
  */
 package com.salesforce.functions.jvm.sdk.data;
 
-import javax.annotation.Nonnull;
-
-public interface ReferenceId {
-  @Nonnull
-  @SuppressWarnings("unused")
-  String toApiString();
-}
+/**
+ * References a record that will be created or modified in the future. It can be used to insert
+ * records that reference other records that will be created in the same {@link UnitOfWork}
+ * transaction.
+ */
+public interface ReferenceId {}
