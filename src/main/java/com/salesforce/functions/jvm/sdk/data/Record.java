@@ -11,6 +11,7 @@ import java.math.BigInteger;
 import java.util.Optional;
 import javax.annotation.Nonnull;
 
+/** Represents a read-only record in a Salesforce org. */
 public interface Record {
   /**
    * Returns the type of the record.

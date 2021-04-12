@@ -48,10 +48,20 @@ public interface Org {
   @SuppressWarnings("unused")
   String getApiVersion();
 
+  /**
+   * Returns an initialized data API client instance to interact with data in the org.
+   *
+   * @return An initialized data API client instance.
+   */
   @Nonnull
   @SuppressWarnings("unused")
   DataApi getDataApi();
 
+  /**
+   * Returns the currently logged in user.
+   *
+   * @return The currently logged in user.
+   */
   @Nonnull
   @SuppressWarnings("unused")
   User getUser();
