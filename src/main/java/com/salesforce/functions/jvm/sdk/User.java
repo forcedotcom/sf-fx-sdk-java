@@ -29,6 +29,11 @@ public interface User {
   @SuppressWarnings("unused")
   String getUsername();
 
+  /**
+   * Returns the id of the user this user operates in behalf of.
+   *
+   * @return The id of the user this user operates in behalf of.
+   */
   @Nonnull
   @SuppressWarnings("unused")
   Optional<String> getOnBehalfOfUserId();
