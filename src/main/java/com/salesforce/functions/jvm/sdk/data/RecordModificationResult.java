@@ -7,8 +7,19 @@
 package com.salesforce.functions.jvm.sdk.data;
 
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
-/** Represents the result of a record modification such as a create or insert. */
+/**
+ * Represents the result of a record modification such as a create, delete, or insert.
+ *
+ * <p>All implementations must be immutable and therefore thread-safe.
+ *
+ * @see DataApi#create(Record)
+ * @see DataApi#update(Record)
+ * @see DataApi#delete(String, String)
+ * @see DataApi#commitUnitOfWork(UnitOfWork)
+ */
+@Immutable
 public interface RecordModificationResult {
   /**
    * Returns the id of the modified record.

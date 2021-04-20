@@ -8,13 +8,17 @@ package com.salesforce.functions.jvm.sdk.data;
 
 import java.util.List;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
 /**
  * Represents the result of a record query.
  *
+ * <p>All implementations must be immutable and therefore thread-safe.
+ *
  * @see DataApi#query(String)
  * @see DataApi#queryMore(RecordQueryResult)
  */
+@Immutable
 public interface RecordQueryResult {
   /**
    * If true, no additional records can be retrieved from the query result. If false, one or more

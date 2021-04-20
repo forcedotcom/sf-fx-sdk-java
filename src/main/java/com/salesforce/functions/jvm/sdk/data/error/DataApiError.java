@@ -4,18 +4,22 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-package com.salesforce.functions.jvm.sdk.data;
+package com.salesforce.functions.jvm.sdk.data.error;
 
 import java.util.List;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
 /**
  * Represents an error from the Data API. Contains detailed information about the underlying error.
+ *
+ * <p>All implementations must be immutable and therefore thread-safe.
  *
  * @see <a
  *     href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/errorcodes.htm">REST
  *     API Developer Guide - Status Codes and Error Responses</a>
  */
+@Immutable
 public interface DataApiError {
   /**
    * Returns the message of this error.
