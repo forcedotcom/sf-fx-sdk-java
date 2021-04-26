@@ -129,17 +129,6 @@ public interface RecordBuilder extends RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  RecordBuilder withField(String name, char value);
-
-  /**
-   * Sets the value of a field.
-   *
-   * @param name The name of the field.
-   * @param value The value to set.
-   * @return This {@link RecordBuilder} instance to allow method chaining.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
   RecordBuilder withField(String name, byte value);
 
   /**

@@ -78,22 +78,6 @@ public interface RecordAccessor {
   Optional<String> getStringField(String name);
 
   /**
-   * Returns the value of a field as a {@link String}.
-   *
-   * <p>Works exactly the same way as {@link #getStringField(String)}, but only returns the first
-   * character.
-   *
-   * @param name The name of the field to obtain the value from.
-   * @throws IndexOutOfBoundsException If the value, converted to a {@link String}, is of length 0.
-   * @return The value of the field as a {@link Character} or empty {@link Optional} if the field is
-   *     not present or null.
-   * @see #getStringField(String)
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  Optional<Character> getCharacterField(String name);
-
-  /**
    * Returns the value of a field as a {@link Boolean}.
    *
    * <p>If the field is not a boolean, its value is converted to a {@link String} first, and then
