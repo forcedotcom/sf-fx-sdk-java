@@ -9,8 +9,8 @@ package com.salesforce.functions.jvm.sdk.data;
 import com.salesforce.functions.jvm.sdk.data.builder.RecordBuilder;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import javax.annotation.Nonnull;
 
 /**
@@ -38,7 +38,7 @@ public interface RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  List<String> getFieldNames();
+  Set<String> getFieldNames();
 
   /**
    * Returns if this record has a field with the given name.
