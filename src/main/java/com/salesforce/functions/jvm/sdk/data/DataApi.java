@@ -6,82 +6,14 @@
  */
 package com.salesforce.functions.jvm.sdk.data;
 
+import com.salesforce.functions.jvm.sdk.data.builder.RecordBuilder;
+import com.salesforce.functions.jvm.sdk.data.builder.UnitOfWorkBuilder;
+import com.salesforce.functions.jvm.sdk.data.error.DataApiException;
 import java.util.Map;
 import javax.annotation.Nonnull;
 
 /** Data API client to interact with data in a Salesforce org. */
 public interface DataApi {
-  /**
-   * Creates a new and empty {@link UnitOfWork}.
-   *
-   * <p>Use the methods on UnitOfWork to add work to it. UnitOfWork instances can be committed by
-   * using the {@link #commitUnitOfWork(UnitOfWork)} method on {@link DataApi}.
-   *
-   * @return A new and empty {@link UnitOfWork}.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  UnitOfWork newUnitOfWork();
-
-  /**
-   * Creates a new {@link RecordCreate} for the given object type.
-   *
-   * @param type The type of record to create.
-   * @return A new {@link RecordCreate}
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordCreate newRecordCreate(String type);
-
-  /**
-   * Creates a new {@link RecordUpdate} for the given object type and record id.
-   *
-   * @param type The object type of record to update.
-   * @param id The ID of the record to update.
-   * @return A new {@link RecordUpdate}
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordUpdate newRecordUpdate(String type, String id);
-
-  /**
-   * Commits a {@link UnitOfWork}, executing all operations registered with it. If any of these
-   * operations fail, the whole unit is rolled back. To examine results for a single operation,
-   * inspect the returned map (which is keyed with {@link ReferenceId} returned from {@link
-   * UnitOfWork#registerCreate(RecordCreate)} and {@link UnitOfWork#registerUpdate(RecordUpdate)}.
-   *
-   * @param unitOfWork The {@link UnitOfWork} to commit.
-   * @return A map of {@link RecordModificationResult}s.
-   * @throws DataApiException If an error occurred while committing the UnitOfWork.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  Map<ReferenceId, RecordModificationResult> commitUnitOfWork(UnitOfWork unitOfWork)
-      throws DataApiException;
-
-  /**
-   * Creates a new record described by the given {@link RecordCreate}.
-   *
-   * @param create The record creation description. Must be obtained via {@link
-   *     #newRecordCreate(String)}.
-   * @return A RecordModificationResult representing the result for this operation.
-   * @throws DataApiException If an error occurred during the creation.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordModificationResult create(RecordCreate create) throws DataApiException;
-
-  /**
-   * Updates an existing record described by the given {@link RecordUpdate}.
-   *
-   * @param update The record update description. Must be obtained via {@link
-   *     #newRecordUpdate(String, String)}.
-   * @return A RecordModificationResult representing the result for this operation.
-   * @throws DataApiException If an error occurred during the update.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordModificationResult update(RecordUpdate update) throws DataApiException;
 
   /**
    * Queries for records with a given SOQL string.
@@ -101,12 +33,107 @@ public interface DataApi {
    * Queries for more records, based on the given {@link RecordQueryResult}.
    *
    * @param queryResult The query result to query more data for.
-   * @return A new {@link RecordQueryResult} with additional data.
+   * @return A new {@link RecordQueryResult} with additional data or an empty one if the given
+   *     RecordQueryResult was already in the done state.
    * @throws DataApiException If error occurred during the query.
+   * @throws IllegalArgumentException If the {@link RecordQueryResult} instance wasn't created by
+   *     this {@link DataApi} instance.
+   * @see RecordQueryResult#isDone()
    */
   @Nonnull
   @SuppressWarnings("unused")
   RecordQueryResult queryMore(RecordQueryResult queryResult) throws DataApiException;
+
+  /**
+   * Creates a new record of the given type with the given fields.
+   *
+   * @param record The record to create.
+   * @return A {@link RecordModificationResult} for this operation.
+   * @throws DataApiException If an API error occurred during record creation.
+   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
+   *     RecordBuilder} obtained from this {@link DataApi} instance.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordModificationResult create(Record record) throws DataApiException;
+
+  /**
+   * Updates an existing record of the given type and id with the given fields.
+   *
+   * @param record The record to update.
+   * @return A {@link RecordModificationResult} for this operation.
+   * @throws DataApiException If an API error occurred during record update.
+   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
+   *     RecordBuilder} obtained from this {@link DataApi} instance.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordModificationResult update(Record record) throws DataApiException;
+
+  /**
+   * Deletes an existing record of the given type and id.
+   *
+   * @param type The object type of the record to delete.
+   * @param id The id of the record to delete.
+   * @return A {@link RecordModificationResult} for this operation.
+   * @throws DataApiException If an API error occurred during record deletion.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordModificationResult delete(String type, String id) throws DataApiException;
+
+  /**
+   * Creates a new and empty RecordBuilder that can be used to build a {@link Record} object for use
+   * with the {@link #update(Record)} and {@link #create(Record)} methods.
+   *
+   * @param type The type of the record to build.
+   * @return A new and empty RecordBuilder.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordBuilder newRecordBuilder(String type);
+
+  /**
+   * Creates a new RecordBuilder, pre-initialized from the given {@link Record}. The type and all
+   * fields present in that Record will be set on the returned RecordBuilder.
+   *
+   * @param record The {@link Record} to copy the type and fields from.
+   * @return A new RecordBuilder, pre-initialized from the given {@link Record}.
+   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
+   *     RecordBuilder} obtained from this {@link DataApi} instance.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordBuilder newRecordBuilder(Record record);
+
+  /**
+   * Creates a new and empty UnitOfWorkBuilder that can be used to build a {@link UnitOfWork} object
+   * for the {@link #commitUnitOfWork(UnitOfWork)} method.
+   *
+   * @return A new and empty FieldsBuilder.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  UnitOfWorkBuilder newUnitOfWorkBuilder();
+
+  /**
+   * Commits a {@link UnitOfWork}, executing all operations registered with it. If any of these
+   * operations fail, the whole unit is rolled back. To examine results for a single operation,
+   * inspect the returned map (which is keyed with {@link ReferenceId} returned from {@link
+   * UnitOfWorkBuilder#registerCreate(Record)}, {@link UnitOfWorkBuilder#registerUpdate(Record)},
+   * and {@link UnitOfWorkBuilder#registerDelete(String, String)}.
+   *
+   * @param unitOfWork The {@link UnitOfWork} to commit.
+   * @return A map of {@link RecordModificationResult}s, indexed by their {@link ReferenceId}s.
+   * @throws DataApiException If an error occurred while committing the UnitOfWork.
+   * @throws IllegalArgumentException If the {@link UnitOfWork} instance wasn't created by a {@link
+   *     UnitOfWorkBuilder} obtained from this {@link DataApi} instance.
+   * @see #newUnitOfWorkBuilder()
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  Map<ReferenceId, RecordModificationResult> commitUnitOfWork(UnitOfWork unitOfWork)
+      throws DataApiException;
 
   /**
    * Returns the access token used by this API client. Can be used to initialize a third-party API
