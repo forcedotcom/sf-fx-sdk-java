@@ -13,6 +13,7 @@ import com.salesforce.functions.jvm.sdk.data.ReferenceId;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Builder for {@link Record}.
@@ -63,7 +64,7 @@ public interface RecordBuilder extends RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  RecordBuilder withField(String name, String value);
+  RecordBuilder withField(String name, @Nullable String value);
 
   /**
    * Sets the value of a field.
@@ -151,7 +152,7 @@ public interface RecordBuilder extends RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  RecordBuilder withField(String name, BigInteger value);
+  RecordBuilder withField(String name, @Nullable BigInteger value);
 
   /**
    * Sets the value of a field.
@@ -162,7 +163,7 @@ public interface RecordBuilder extends RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  RecordBuilder withField(String name, BigDecimal value);
+  RecordBuilder withField(String name, @Nullable BigDecimal value);
 
   /**
    * Sets the value of a field.
@@ -173,5 +174,5 @@ public interface RecordBuilder extends RecordAccessor {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  RecordBuilder withField(String name, ReferenceId value);
+  RecordBuilder withField(String name, @Nullable ReferenceId value);
 }
