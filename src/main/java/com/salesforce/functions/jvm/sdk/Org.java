@@ -10,7 +10,7 @@ import com.salesforce.functions.jvm.sdk.data.DataApi;
 import java.net.URI;
 import javax.annotation.Nonnull;
 
-/** Holds information about the invoking Salesforce organization and user in Customer 360. */
+/** Holds information about the invoking Salesforce organization and user. */
 public interface Org {
   /**
    * Returns the Salesforce organization ID.

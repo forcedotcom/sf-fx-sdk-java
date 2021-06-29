@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 /**
- * Represents the connection to the the execution environment and the Customer 360 instance that the
+ * Represents the connection to the the execution environment and the Salesforce instance that the
  * function is associated with.
  */
 public interface Context {
@@ -24,9 +24,9 @@ public interface Context {
   String getId();
 
   /**
-   * Returns information about the invoking Salesforce organization and user in Customer 360.
+   * Returns information about the invoking Salesforce organization and user.
    *
-   * @return Information about the invoking Salesforce organization and user in Customer 360.
+   * @return Information about the invoking Salesforce organization and user.
    */
   @Nonnull
   @SuppressWarnings("unused")
