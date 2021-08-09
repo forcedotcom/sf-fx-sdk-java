@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 /**
- * Represents the connection to the the execution environment and the Salesforce instance that the
+ * Represents the connection to the execution environment and the Salesforce instance that the
  * function is associated with.
  */
 public interface Context {
