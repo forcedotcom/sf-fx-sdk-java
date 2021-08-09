@@ -42,7 +42,7 @@ public interface InvocationEvent<T> {
   String getType();
 
   /**
-   * Returns an URI which Identifies the context in which an event happened. Often this will include
+   * Returns an URI which identifies the context in which an event happened. Often this will include
    * information such as the type of the event source, the organization publishing the event or the
    * process that produced the event.
    *

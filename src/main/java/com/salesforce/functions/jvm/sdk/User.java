@@ -9,7 +9,7 @@ package com.salesforce.functions.jvm.sdk;
 import java.util.Optional;
 import javax.annotation.Nonnull;
 
-/** Holds information about the invoking Salesforce user in Customer 360. */
+/** Holds information about the invoking Salesforce user. */
 public interface User {
   /**
    * Returns the user's ID.
