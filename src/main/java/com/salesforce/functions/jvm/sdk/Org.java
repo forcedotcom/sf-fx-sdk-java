@@ -6,6 +6,7 @@
  */
 package com.salesforce.functions.jvm.sdk;
 
+import com.salesforce.functions.jvm.sdk.bulk.BulkApi;
 import com.salesforce.functions.jvm.sdk.data.DataApi;
 import java.net.URI;
 import javax.annotation.Nonnull;
@@ -51,11 +52,22 @@ public interface Org {
   /**
    * Returns an initialized data API client instance to interact with data in the org.
    *
+   * @see #getBulkApi()
    * @return An initialized data API client instance.
    */
   @Nonnull
   @SuppressWarnings("unused")
   DataApi getDataApi();
+
+  /**
+   * Returns an initialized bulk API client instance to upload data in bulk to the org.
+   *
+   * @see #getDataApi()
+   * @return An initialized bulk API client instance.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  BulkApi getBulkApi();
 
   /**
    * Returns the currently logged in user.
