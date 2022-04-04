@@ -19,12 +19,12 @@ public interface BulkApi {
    * for asynchronous processing. Provide job data via {@link #uploadJobData(String, InputStream)}.
    *
    * @param job The job to create.
-   * @return The ID of the created job.
+   * @return Detailed information about the created job.
    * @throws BulkApiException If an error occurred during job creation.
    * @see #newJobBuilder(String, Operation)
    */
   @SuppressWarnings("unused")
-  String createJob(Job job) throws BulkApiException;
+  JobInfo createJob(Job job) throws BulkApiException;
 
   /**
    * Retrieves detailed information about a job.
@@ -84,19 +84,21 @@ public interface BulkApi {
    * and you can’t add any more job data.
    *
    * @param jobId The ID of the job to close.
+   * @return Detailed information about the closed job.
    * @throws BulkApiException If an error occurred while closing the job.
    */
   @SuppressWarnings("unused")
-  void closeJob(String jobId) throws BulkApiException;
+  JobInfo closeJob(String jobId) throws BulkApiException;
 
   /**
    * Aborts a job. If you abort a job, the job doesn't get queued or processed.
    *
    * @param jobId The ID of the job to abort.
+   * @return Detailed information about the aborted job.
    * @throws BulkApiException If an error occurred while aborting the job.
    */
   @SuppressWarnings("unused")
-  void abortJob(String jobId) throws BulkApiException;
+  JobInfo abortJob(String jobId) throws BulkApiException;
 
   /**
    * Deletes a job.
