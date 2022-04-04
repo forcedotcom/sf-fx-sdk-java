@@ -16,7 +16,7 @@ import java.io.InputStream;
 public interface BulkApi {
   /**
    * Creates a job representing a bulk operation and its associated data that is sent to Salesforce
-   * for asynchronous processing. Provide job data via {@link #uploadJobData(String, File)}.
+   * for asynchronous processing. Provide job data via {@link #uploadJobData(String, InputStream)}.
    *
    * @param job The job to create.
    * @return The ID of the created job.
@@ -72,33 +72,12 @@ public interface BulkApi {
    * Uploads data for a job using CSV data you provide.
    *
    * @param jobId The ID for the job to upload data for.
-   * @param file The CSV file to upload to the job.
-   * @throws BulkApiException If an error occurred uploading the data.
-   * @throws IOException If an error occurred reading data from the provided file.
-   */
-  @SuppressWarnings("unused")
-  void uploadJobData(String jobId, File file) throws BulkApiException, IOException;
-
-  /**
-   * Uploads data for a job using CSV data you provide.
-   *
-   * @param jobId The ID for the job to upload data for.
    * @param inputStream The CSV data as a stream to upload to the job.
    * @throws BulkApiException If an error occurred uploading the data.
    * @throws IOException If an error occurred reading data from the provided stream.
    */
   @SuppressWarnings("unused")
   void uploadJobData(String jobId, InputStream inputStream) throws BulkApiException, IOException;
-
-  /**
-   * Uploads data for a job using CSV data you provide.
-   *
-   * @param jobId The ID for the job to upload data for.
-   * @param csv The CSV data to upload to the job.
-   * @throws BulkApiException If an error occurred uploading the data.
-   */
-  @SuppressWarnings("unused")
-  void uploadJobData(String jobId, String csv) throws BulkApiException;
 
   /**
    * Closes a job. If you close a job, Salesforce queues the job and uploaded data for processing,

@@ -6,7 +6,6 @@
  */
 package com.salesforce.functions.jvm.sdk.bulk;
 
-import java.io.File;
 import java.net.URI;
 import java.time.Duration;
 import java.time.Instant;
@@ -129,8 +128,8 @@ public interface JobInfo {
    * Returns the URL to use for Upload Job Data requests for this job. Only valid if the job is in
    * open state.
    *
-   * <p>Users should use {@link BulkApi#uploadJobData(String, File)} to upload data for a job
-   * instead of using this URL directly.
+   * <p>Users should use {@link BulkApi#uploadJobData(String, java.io.InputStream)} to upload data
+   * for a job instead of using this URL directly.
    *
    * @return The URL to use for Upload Job Data requests for this job.
    */
