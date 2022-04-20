@@ -6,6 +6,8 @@
  */
 package com.salesforce.functions.jvm.sdk.data;
 
+import com.salesforce.functions.jvm.sdk.Record;
+
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;

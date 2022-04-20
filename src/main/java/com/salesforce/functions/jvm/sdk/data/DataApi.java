@@ -6,7 +6,8 @@
  */
 package com.salesforce.functions.jvm.sdk.data;
 
-import com.salesforce.functions.jvm.sdk.data.builder.RecordBuilder;
+import com.salesforce.functions.jvm.sdk.Record;
+import com.salesforce.functions.jvm.sdk.ReferenceId;
 import com.salesforce.functions.jvm.sdk.data.builder.UnitOfWorkBuilder;
 import com.salesforce.functions.jvm.sdk.data.error.DataApiException;
 import java.util.Map;
@@ -50,8 +51,7 @@ public interface DataApi {
    * @param record The record to create.
    * @return A {@link RecordModificationResult} for this operation.
    * @throws DataApiException If an API error occurred during record creation.
-   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
-   *     RecordBuilder} obtained from this {@link DataApi} instance.
+   * @throws IllegalArgumentException If the {@link Record} instance is incompatible with this {@link DataApi} instance.
    */
   @Nonnull
   @SuppressWarnings("unused")
@@ -63,8 +63,7 @@ public interface DataApi {
    * @param record The record to update.
    * @return A {@link RecordModificationResult} for this operation.
    * @throws DataApiException If an API error occurred during record update.
-   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
-   *     RecordBuilder} obtained from this {@link DataApi} instance.
+   * @throws IllegalArgumentException If the {@link Record} instance is incompatible with this {@link DataApi} instance.
    */
   @Nonnull
   @SuppressWarnings("unused")
@@ -81,30 +80,6 @@ public interface DataApi {
   @Nonnull
   @SuppressWarnings("unused")
   RecordModificationResult delete(String type, String id) throws DataApiException;
-
-  /**
-   * Creates a new and empty RecordBuilder that can be used to build a {@link Record} object for use
-   * with the {@link #update(Record)} and {@link #create(Record)} methods.
-   *
-   * @param type The type of the record to build.
-   * @return A new and empty RecordBuilder.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordBuilder newRecordBuilder(String type);
-
-  /**
-   * Creates a new RecordBuilder, pre-initialized from the given {@link Record}. The type and all
-   * fields present in that Record will be set on the returned RecordBuilder.
-   *
-   * @param record The {@link Record} to copy the type and fields from.
-   * @return A new RecordBuilder, pre-initialized from the given {@link Record}.
-   * @throws IllegalArgumentException If the {@link Record} instance wasn't created by a {@link
-   *     RecordBuilder} obtained from this {@link DataApi} instance.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  RecordBuilder newRecordBuilder(Record record);
 
   /**
    * Creates a new and empty UnitOfWorkBuilder that can be used to build a {@link UnitOfWork} object

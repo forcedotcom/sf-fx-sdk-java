@@ -6,9 +6,10 @@
  */
 package com.salesforce.functions.jvm.sdk.data.builder;
 
+import com.salesforce.functions.jvm.sdk.Record;
+import com.salesforce.functions.jvm.sdk.RecordBuilder;
 import com.salesforce.functions.jvm.sdk.data.DataApi;
-import com.salesforce.functions.jvm.sdk.data.Record;
-import com.salesforce.functions.jvm.sdk.data.ReferenceId;
+import com.salesforce.functions.jvm.sdk.ReferenceId;
 import com.salesforce.functions.jvm.sdk.data.UnitOfWork;
 import javax.annotation.Nonnull;
 
