@@ -77,4 +77,27 @@ public interface Org {
   @Nonnull
   @SuppressWarnings("unused")
   User getUser();
+
+  /**
+   * Creates a new and empty RecordBuilder that can be used to build a {@link Record} objects.
+   *
+   * @param type The type of the record to build.
+   * @return A new and empty RecordBuilder.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordBuilder newRecordBuilder(String type);
+
+  /**
+   * Creates a new RecordBuilder, pre-initialized from the given {@link Record}. The type and all
+   * fields present in that Record will be set on the returned RecordBuilder.
+   *
+   * @param record The {@link Record} to copy the type and fields from.
+   * @return A new RecordBuilder, pre-initialized from the given {@link Record}.
+   * @throws IllegalArgumentException If the {@link Record} instance is incompatible with this
+   *     {@link Org} instance.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordBuilder newRecordBuilder(Record record);
 }
