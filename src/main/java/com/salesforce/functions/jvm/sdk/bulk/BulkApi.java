@@ -14,8 +14,7 @@ import com.salesforce.functions.jvm.sdk.bulk.error.BulkApiException;
 public interface BulkApi {
   /**
    * Creates a job representing a bulk operation and its associated data that is sent to Salesforce
-   * for asynchronous processing. Provide job data via {@link #uploadJobData(String,
-   * Iterable<Record>)}.
+   * for asynchronous processing. Provide job data via {@link #uploadJobData(String, Iterable)}.
    *
    * @param job The job to create.
    * @return Detailed information about the created job.
