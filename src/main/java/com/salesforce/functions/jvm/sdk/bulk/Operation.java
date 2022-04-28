@@ -9,17 +9,36 @@ package com.salesforce.functions.jvm.sdk.bulk;
 /** The type of processing operation for a bulk job. */
 public enum Operation {
   @SuppressWarnings("unused")
-  INSERT,
+  INSERT("insert"),
 
   @SuppressWarnings("unused")
-  DELETE,
+  DELETE("delete"),
 
   @SuppressWarnings("unused")
-  HARD_DELETE,
+  HARD_DELETE("hardDelete"),
 
   @SuppressWarnings("unused")
-  UPDATE,
+  UPDATE("update"),
 
   @SuppressWarnings("unused")
-  UPSERT
+  UPSERT("upsert");
+
+  private final String textValue;
+
+  Operation(String textValue) {
+    this.textValue = textValue;
+  }
+
+  public static Operation fromTextValue(String textValue) {
+    for (Operation operation : values()) {
+      if (operation.textValue.equals(textValue)) {
+        return operation;
+      }
+    }
+    throw new IllegalArgumentException("No enum constant " + Operation.class.getCanonicalName() + " found with textValue=" + textValue);
+  }
+
+  public String getTextValue() {
+    return textValue;
+  }
 }
