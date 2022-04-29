@@ -43,12 +43,12 @@ public interface BulkApi {
    * @see <a
    *     href="https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_successful_results.htm">Bulk
    *     API 2.0 and Bulk API Developer Guide</a>
-   * @param jobId The ID of the job to get successful record results for.
+   * @param jobInfo Use JobInfo to fetch and parse successful record results.
    * @return An iterable containing the records that were successfully processed.
    * @throws BulkApiException If an error occurred while querying successful record results.
    */
   @SuppressWarnings("unused")
-  Iterable<Record> getJobSuccessfulRecordResults(String jobId) throws BulkApiException;
+  Iterable<Record> getJobSuccessfulRecordResults(JobInfo jobInfo) throws BulkApiException;
 
   /**
    * Retrieves a list of failed records for a completed job.
@@ -59,12 +59,12 @@ public interface BulkApi {
    * @see <a
    *     href="https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/get_job_failed_results.htm">Bulk
    *     API 2.0 and Bulk API Developer Guide</a>
-   * @param jobId The ID of the job to get failed record results for.
+   * @param jobInfo Use JobInfo to fetch and parse successful record results.
    * @return An iterable containing the records that failed to be processed.
    * @throws BulkApiException If an error occurred while querying failed record results.
    */
   @SuppressWarnings("unused")
-  Iterable<Record> getJobFailedRecordResults(String jobId) throws BulkApiException;
+  Iterable<Record> getJobFailedRecordResults(JobInfo jobInfo) throws BulkApiException;
 
   /**
    * Uploads data for a job using CSV data you provide.

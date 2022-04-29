@@ -53,7 +53,11 @@ public enum JobState {
         return jobState;
       }
     }
-    throw new IllegalArgumentException("No enum constant " + JobState.class.getCanonicalName() + " found with textValue=" + textValue);
+    throw new IllegalArgumentException(
+        "No enum constant "
+            + JobState.class.getCanonicalName()
+            + " found with textValue="
+            + textValue);
   }
 
   public String getTextValue() {

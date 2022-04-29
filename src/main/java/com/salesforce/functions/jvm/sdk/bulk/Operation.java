@@ -35,7 +35,11 @@ public enum Operation {
         return operation;
       }
     }
-    throw new IllegalArgumentException("No enum constant " + Operation.class.getCanonicalName() + " found with textValue=" + textValue);
+    throw new IllegalArgumentException(
+        "No enum constant "
+            + Operation.class.getCanonicalName()
+            + " found with textValue="
+            + textValue);
   }
 
   public String getTextValue() {
