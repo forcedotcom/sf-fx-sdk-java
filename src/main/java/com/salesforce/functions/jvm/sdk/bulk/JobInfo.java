@@ -7,15 +7,13 @@
 package com.salesforce.functions.jvm.sdk.bulk;
 
 import java.net.URI;
-import java.time.Duration;
-import java.time.Instant;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Detailed information about a bulk job.
  *
- * @see BulkApi#getJobInfo(String)
+ * @see BulkApi#getJobInfo(JobInfo)
  * @see BulkApi#createJob(Job)
  */
 @Immutable
@@ -93,7 +91,7 @@ public interface JobInfo {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  Duration getApexProcessingTime();
+  Long getApexProcessingTime();
 
   /**
    * Returns the amount of time taken to actively process the job and includes apexProcessingTime,
@@ -104,7 +102,7 @@ public interface JobInfo {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  Duration getApiActiveProcessingTime();
+  Long getApiActiveProcessingTime();
 
   /**
    * Returns the amount of time taken to process the job.
@@ -113,7 +111,7 @@ public interface JobInfo {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  Duration getTotalProcessingTime();
+  Long getTotalProcessingTime();
 
   /**
    * Returns the ID of an assignment rule to run for a case or a lead.
@@ -128,7 +126,7 @@ public interface JobInfo {
    * Returns the URL to use for Upload Job Data requests for this job. Only valid if the job is in
    * open state.
    *
-   * <p>Users should use {@link BulkApi#uploadJobData(String, Iterable)} to upload data for a job
+   * <p>Users should use {@link BulkApi#uploadJobData(JobInfo, Iterable)} to upload data for a job
    * instead of using this URL directly.
    *
    * @return The URL to use for Upload Job Data requests for this job.
@@ -153,7 +151,7 @@ public interface JobInfo {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  Instant getCreatedDate();
+  String getCreatedDate();
 
   /**
    * Returns the point in time when the job finished.
@@ -162,7 +160,7 @@ public interface JobInfo {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  Instant getSystemModstamp();
+  String getSystemModstamp();
 
   /**
    * Returns the name of the external ID field for an upsert.

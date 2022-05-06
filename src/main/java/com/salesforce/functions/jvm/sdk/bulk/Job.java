@@ -14,4 +14,18 @@ import javax.annotation.concurrent.Immutable;
  * <p>Implementations must be immutable and therefore thread-safe.
  */
 @Immutable
-public interface Job {}
+public interface Job {
+  String getObjectType();
+
+  Operation getOperation();
+
+  String getAssignmentRuleId();
+
+  ColumnDelimiter getColumnDelimiter();
+
+  ContentType getContentType();
+
+  String getExternalIdFieldName();
+
+  LineEnding getLineEnding();
+}
