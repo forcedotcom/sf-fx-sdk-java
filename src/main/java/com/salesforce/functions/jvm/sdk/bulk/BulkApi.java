@@ -8,10 +8,10 @@ package com.salesforce.functions.jvm.sdk.bulk;
 
 import com.salesforce.functions.jvm.sdk.Record;
 import com.salesforce.functions.jvm.sdk.bulk.builder.JobBuilder;
-import com.salesforce.functions.jvm.sdk.bulk.builder.JobInfoBuilder;
 import com.salesforce.functions.jvm.sdk.bulk.error.BulkApiException;
-import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
+import java.util.function.Consumer;
 
 /** Bulk API client to upload data in bulk to a Salesforce org. */
 public interface BulkApi {
@@ -157,15 +157,4 @@ public interface BulkApi {
   @SuppressWarnings("unused")
   @Nonnull
   JobBuilder newJobBuilder(@Nonnull String objectType, @Nonnull Operation operation);
-
-  /**
-   * Creates a new JobInfoBuilder that can be used to build a {@link JobInfo} object for use in most
-   * BulkApi methods.
-   *
-   * @param jobId An identifier for a Bulk API job.
-   * @return A new JobInfoBuilder for the given job id.
-   */
-  @SuppressWarnings("unused")
-  @Nonnull
-  JobInfoBuilder newJobInfoBuilder(@Nonnull String jobId);
 }

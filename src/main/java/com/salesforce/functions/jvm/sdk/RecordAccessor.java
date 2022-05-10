@@ -331,4 +331,6 @@ public interface RecordAccessor {
   @Nonnull
   @SuppressWarnings("unused")
   Optional<BigDecimal> getBigDecimalField(String name);
+
+  Optional<Object> get(String name);
 }

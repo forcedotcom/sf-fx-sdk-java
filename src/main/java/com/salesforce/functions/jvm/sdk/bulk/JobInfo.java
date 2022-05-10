@@ -162,6 +162,10 @@ public interface JobInfo {
   @SuppressWarnings("unused")
   String getSystemModstamp();
 
+  ConcurrencyMode getConcurrencyMode();
+
+  String getApiVersion();
+
   /**
    * Returns the name of the external ID field for an upsert.
    *
@@ -177,7 +181,7 @@ public interface JobInfo {
    * @return The number of records that were not processed successfully in this job.
    */
   @SuppressWarnings("unused")
-  long getNumberRecordsFailed();
+  Long getNumberRecordsFailed();
 
   /**
    * Returns the number of records already processed.
@@ -185,7 +189,7 @@ public interface JobInfo {
    * @return The number of records already processed.
    */
   @SuppressWarnings("unused")
-  long getNumberRecordsProcessed();
+  Long getNumberRecordsProcessed();
 
   /**
    * Returns the number of times that Salesforce attempted to save the results of an operation. The
@@ -194,5 +198,5 @@ public interface JobInfo {
    * @return The number of times that Salesforce attempted to save the results of an operation.
    */
   @SuppressWarnings("unused")
-  int getRetries();
+  Integer getRetries();
 }
