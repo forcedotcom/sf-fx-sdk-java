@@ -9,9 +9,8 @@ package com.salesforce.functions.jvm.sdk.bulk;
 import com.salesforce.functions.jvm.sdk.Record;
 import com.salesforce.functions.jvm.sdk.bulk.builder.JobBuilder;
 import com.salesforce.functions.jvm.sdk.bulk.error.BulkApiException;
-
-import javax.annotation.Nonnull;
 import java.util.function.Consumer;
+import javax.annotation.Nonnull;
 
 /** Bulk API client to upload data in bulk to a Salesforce org. */
 public interface BulkApi {

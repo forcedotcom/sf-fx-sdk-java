@@ -199,4 +199,13 @@ public interface JobInfo {
    */
   @SuppressWarnings("unused")
   Integer getRetries();
+
+  /**
+   * Returns the error message returned when there was a problem with the uploaded data. For
+   * example, if the uploaded records contain any fields that are not part of the SObject being
+   * targeted.
+   *
+   * @return The error message for the failed job.
+   */
+  String getErrorMessage();
 }
