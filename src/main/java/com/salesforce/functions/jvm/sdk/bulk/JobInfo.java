@@ -10,12 +10,7 @@ import java.net.URI;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
-/**
- * Detailed information about a bulk job.
- *
- * @see BulkApi#getJobInfo(JobInfo)
- * @see BulkApi#createJob(Job)
- */
+/** Detailed information about a bulk job. */
 @Immutable
 public interface JobInfo {
   /**
@@ -126,8 +121,8 @@ public interface JobInfo {
    * Returns the URL to use for Upload Job Data requests for this job. Only valid if the job is in
    * open state.
    *
-   * <p>Users should use {@link BulkApi#uploadJobData(JobInfo, Iterable)} to upload data for a job
-   * instead of using this URL directly.
+   * <p>Users should use {@link BulkApi#submit(String, Operation, Iterable)} to upload data for a
+   * job instead of using this URL directly.
    *
    * @return The URL to use for Upload Job Data requests for this job.
    */

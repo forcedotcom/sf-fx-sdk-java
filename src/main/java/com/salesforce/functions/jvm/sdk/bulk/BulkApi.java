@@ -7,6 +7,7 @@
 package com.salesforce.functions.jvm.sdk.bulk;
 
 import com.salesforce.functions.jvm.sdk.Record;
+import com.salesforce.functions.jvm.sdk.bulk.error.BulkApiException;
 import java.util.List;
 import javax.annotation.Nonnull;
 
@@ -15,7 +16,8 @@ public interface BulkApi {
   @SuppressWarnings("unused")
   @Nonnull
   List<String> submit(
-      @Nonnull String objectType, @Nonnull Operation operation, @Nonnull Iterable<Record> records);
+      @Nonnull String objectType, @Nonnull Operation operation, @Nonnull Iterable<Record> records)
+      throws BulkApiException;
   //
   //  @Nonnull
   //  JobInfo getInfo(@Nonnull String jobId);

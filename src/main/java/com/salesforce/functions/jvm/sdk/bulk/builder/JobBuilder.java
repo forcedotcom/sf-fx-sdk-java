@@ -9,11 +9,7 @@ package com.salesforce.functions.jvm.sdk.bulk.builder;
 import com.salesforce.functions.jvm.sdk.bulk.*;
 import javax.annotation.Nonnull;
 
-/**
- * Builder for {@link Job}.
- *
- * @see BulkApi#newJobBuilder(String, Operation)
- */
+/** Builder for {@link Job}. */
 public interface JobBuilder {
   /**
    * Sets the assignment rule ID for this job.
