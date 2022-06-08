@@ -7,11 +7,16 @@
 package com.salesforce.functions.jvm.sdk.bulk;
 
 import com.salesforce.functions.jvm.sdk.Record;
+import java.util.Optional;
 
-public interface JobResults {
-  Iterable<Record> getSuccess();
+public interface JobBatchResult {
+  Optional<String> getJobId();
 
-  Iterable<Record> getFailed();
+  Optional<Throwable> getError();
 
-  Iterable<Record> getUnprocessed();
+  boolean isSuccess();
+
+  boolean isError();
+
+  Iterable<Record> getUnsubmittedRecords();
 }

@@ -6,7 +6,7 @@
  */
 package com.salesforce.functions.jvm.sdk.bulk.builder;
 
-import com.salesforce.functions.jvm.sdk.bulk.*;
+import com.salesforce.functions.jvm.sdk.bulk.Job;
 import javax.annotation.Nonnull;
 
 /** Builder for {@link Job}. */
@@ -22,26 +22,6 @@ public interface JobBuilder {
   JobBuilder withAssignmentRuleId(String assignmentRuleId);
 
   /**
-   * Sets the column delimiter for this job.
-   *
-   * @param columnDelimiter The column delimiter for this job.
-   * @return This {@link JobBuilder} instance to allow method chaining.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  JobBuilder withColumnDelimiter(ColumnDelimiter columnDelimiter);
-
-  /**
-   * Sets the content type for this job.
-   *
-   * @param contentType The content type for this job.
-   * @return This {@link JobBuilder} instance to allow method chaining.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  JobBuilder withContentType(ContentType contentType);
-
-  /**
    * Sets the external ID field name for this job.
    *
    * @param externalIdFieldName The external ID field name for this job.
@@ -50,16 +30,6 @@ public interface JobBuilder {
   @Nonnull
   @SuppressWarnings("unused")
   JobBuilder withExternalIdFieldName(String externalIdFieldName);
-
-  /**
-   * Sets the line ending for this job.
-   *
-   * @param lineEnding The line ending for this job.
-   * @return This {@link JobBuilder} instance to allow method chaining.
-   */
-  @Nonnull
-  @SuppressWarnings("unused")
-  JobBuilder withLineEnding(LineEnding lineEnding);
 
   /**
    * Returns a new and immutable {@link Job} instance based on the information stored in this

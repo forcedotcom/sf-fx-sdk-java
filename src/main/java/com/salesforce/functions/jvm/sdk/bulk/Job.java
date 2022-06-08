@@ -6,6 +6,8 @@
  */
 package com.salesforce.functions.jvm.sdk.bulk;
 
+import com.salesforce.functions.jvm.sdk.Record;
+import java.util.Optional;
 import javax.annotation.concurrent.Immutable;
 
 /**
@@ -19,13 +21,9 @@ public interface Job {
 
   Operation getOperation();
 
-  String getAssignmentRuleId();
+  Optional<String> getAssignmentRuleId();
 
-  ColumnDelimiter getColumnDelimiter();
+  Optional<String> getExternalIdFieldName();
 
-  ContentType getContentType();
-
-  String getExternalIdFieldName();
-
-  LineEnding getLineEnding();
+  Iterable<Record> getRecords();
 }
