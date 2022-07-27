@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, salesforce.com, inc.
+ * Copyright (c) 2022, salesforce.com, inc.
  * All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
@@ -41,12 +41,13 @@ public interface RecordQueryResult {
   long getTotalSize();
 
   /**
-   * Returns the {@link Record}s in this query result. Use {@link #isDone()} to determine if there
-   * are additional records to be queried with {@link DataApi#queryMore(RecordQueryResult)}.
+   * Returns the {@link RecordWithSubQueryResults}s in this query result. Use {@link #isDone()} to
+   * determine if there are additional records to be queried with {@link
+   * DataApi#queryMore(RecordQueryResult)}.
    *
-   * @return The {@link Record}s in this query result.
+   * @return The {@link RecordWithSubQueryResults}s in this query result.
    */
   @Nonnull
   @SuppressWarnings("unused")
-  List<Record> getRecords();
+  List<RecordWithSubQueryResults> getRecords();
 }
