@@ -92,7 +92,7 @@ public interface RecordAccessor {
    * <p>If the field is not a boolean, its value is converted to a {@link String} first, and then
    * parsed with {@link Boolean#parseBoolean(String)}. Effectively, this means that any non-boolean
    * value that can be converted into a {@link String}, except the String "true" (compared
-   * case-insensitive) will result in false being returned by this method. If the field cannot be
+   * case-insensitively) will result in false being returned by this method. If the field cannot be
    * converted, a {@link FieldConversionException} will be thrown.
    *
    * @param name The name of the field to obtain the value from.
