@@ -12,6 +12,7 @@ import com.salesforce.functions.jvm.sdk.data.RecordAccessor;
 import com.salesforce.functions.jvm.sdk.data.ReferenceId;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.nio.ByteBuffer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -175,4 +176,15 @@ public interface RecordBuilder extends RecordAccessor {
   @Nonnull
   @SuppressWarnings("unused")
   RecordBuilder withField(String name, @Nullable ReferenceId value);
+
+  /**
+   * Sets the value of a field.
+   *
+   * @param name The name of the field.
+   * @param value The value to set.
+   * @return This {@link RecordBuilder} instance to allow method chaining.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  RecordBuilder withField(String name, @Nullable ByteBuffer value);
 }
