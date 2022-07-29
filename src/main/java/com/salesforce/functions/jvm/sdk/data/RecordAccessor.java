@@ -7,8 +7,10 @@
 package com.salesforce.functions.jvm.sdk.data;
 
 import com.salesforce.functions.jvm.sdk.data.builder.RecordBuilder;
+import com.salesforce.functions.jvm.sdk.data.error.FieldConversionException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.nio.ByteBuffer;
 import java.util.Optional;
 import java.util.Set;
 import javax.annotation.Nonnull;
@@ -70,9 +72,12 @@ public interface RecordAccessor {
    *
    * <p>Field values that are not {@link String}s will be automatically converted to Strings. For
    * example, if the field contains the number 42, this method will return an {@link Optional} that
-   * contains the String "42".
+   * contains the String "42". If the field cannot be converted, a {@link FieldConversionException}
+   * will be thrown.
    *
    * @param name The name of the field to obtain the value from.
+   * @throws FieldConversionException If the value could not be converted into a {@link String}
+   *     value.
    * @return The value of the field as a {@link String} or empty {@link Optional} if the field is
    *     not present or null.
    */
@@ -86,8 +91,9 @@ public interface RecordAccessor {
    *
    * <p>If the field is not a boolean, its value is converted to a {@link String} first, and then
    * parsed with {@link Boolean#parseBoolean(String)}. Effectively, this means that any non-boolean
-   * value except the String "true" (compared case-insensitive) will result in false being returned
-   * by this method.
+   * value that can be converted into a {@link String}, except the String "true" (compared
+   * case-insensitive) will result in false being returned by this method. If the field cannot be
+   * converted, a {@link FieldConversionException} will be thrown.
    *
    * @param name The name of the field to obtain the value from.
    * @return The value of the field as a {@link Boolean} or empty {@link Optional} if the field is
@@ -103,7 +109,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link Byte} (i.e.
    * the value is too large or contains decimals), it will be converted to a {@link Byte} which may
@@ -119,7 +125,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link Byte} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link Byte} value.
    * @return The value of the field as a {@link Byte} or empty {@link Optional} if the field is not
    *     present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -136,7 +142,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link Short} (i.e.
    * the value is too large or contains decimals), it will be converted to a {@link Short} which may
@@ -152,7 +158,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link Short} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link Short} value.
    * @return The value of the field as a {@link Short} or empty {@link Optional} if the field is not
    *     present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -169,7 +175,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as an {@link Integer}
    * (i.e. the value is too large or contains decimals), it will be converted to an {@link Integer}
@@ -185,7 +191,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as an {@link Integer} value.
+   * @throws FieldConversionException If the value could not be parsed as an {@link Integer} value.
    * @return The value of the field as an {@link Integer} or empty {@link Optional} if the field is
    *     not present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -202,7 +208,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link Long} (i.e.
    * the value is too large or contains decimals), it will be converted to a {@link Long} which may
@@ -218,7 +224,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link Long} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link Long} value.
    * @return The value of the field as a {@link Long} or empty {@link Optional} if the field is not
    *     present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -235,7 +241,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link Float} (i.e.
    * the value is too large or contains decimals), it will be converted to a {@link Float} which may
@@ -251,7 +257,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link Float} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link Float} value.
    * @return The value of the field as a {@link Float} or empty {@link Optional} if the field is not
    *     present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -268,7 +274,7 @@ public interface RecordAccessor {
    *
    * <p>If field's value is not a number, this method will try to parse it as one. This allows
    * {@link String}s that represent numbers to be interpreted as numbers. If the value cannot be
-   * parsed as a number, a {@link NumberFormatException} is thrown.
+   * parsed as a number, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link Double} (i.e.
    * the value is too large or contains decimals), it will be converted to a {@link Double} which
@@ -284,7 +290,7 @@ public interface RecordAccessor {
    * BigDecimal} to primitive number types.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link Double} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link Double} value.
    * @return The value of the field as a {@link Double} or empty {@link Optional} if the field is
    *     not present or null.
    * @see <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-5.html">The Java® Language
@@ -300,14 +306,15 @@ public interface RecordAccessor {
    * is compared case-insensitively.
    *
    * <p>If field's value is not a number, this method will try to parse it as one. If that process
-   * fails, a {@link NumberFormatException} is thrown.
+   * fails, a {@link FieldConversionException} is thrown.
    *
    * <p>If the (if necessary, parsed) value cannot be directly represented as a {@link BigInteger}
    * (i.e. the value contains decimals), it will be converted to a {@link BigInteger} which may
    * involve rounding. Use {@link #getBigDecimalField(String)} support for decimals is required.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link BigInteger} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link BigInteger}
+   *     value.
    * @return The value of the field as a {@link BigInteger} or empty {@link Optional} if the field
    *     is not present or null.
    * @see #getBigDecimalField(String)
@@ -322,14 +329,31 @@ public interface RecordAccessor {
    *
    * <p>If the field's value is not a number, this method will try to parse it as one. If that
    * process fails, or the number cannot be represented as a {@link BigDecimal}, a {@link
-   * NumberFormatException} is thrown.
+   * FieldConversionException} is thrown.
    *
    * @param name The name of the field to obtain the value from.
-   * @throws NumberFormatException If the value could not be parsed as a {@link BigDecimal} value.
+   * @throws FieldConversionException If the value could not be parsed as a {@link BigDecimal}
+   *     value.
    * @return The value of the field as a {@link BigDecimal} or empty {@link Optional} if the field
    *     is not present or null.
    */
   @Nonnull
   @SuppressWarnings("unused")
   Optional<BigDecimal> getBigDecimalField(String name);
+
+  /**
+   * Returns the value of a binary field as a {@link ByteBuffer}. The field name is compared
+   * case-insensitively.
+   *
+   * <p>Field values that are not binary data will not be converted to a {@link ByteBuffer}. Using
+   * this method on a non-binary field will cause a {@link FieldConversionException} to be thrown.
+   *
+   * @param name The name of the field to obtain the value from.
+   * @throws FieldConversionException If the value is not binary data.
+   * @return The value of the binary field as a {@link ByteBuffer} or empty {@link Optional} if the
+   *     field is not present or null.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  Optional<ByteBuffer> getBinaryField(String name);
 }
