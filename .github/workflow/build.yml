@@ -1,10 +1,5 @@
 name: Build
-on:
-  push:
-    # Avoid duplicate builds on PRs.
-    branches:
-      - main
-  pull_request:
+on: [push]
 permissions:
   contents: read
 jobs:
