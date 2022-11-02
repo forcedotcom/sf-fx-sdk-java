@@ -21,4 +21,4 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: zulu
           cache: maven
-      - run: ./mvnw package
+      - run: ./mvnw --no-transfer-progress package
