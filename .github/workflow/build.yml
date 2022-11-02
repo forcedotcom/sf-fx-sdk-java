@@ -20,4 +20,5 @@ jobs:
         with:
           java-version: ${{ matrix.version }}
           distribution: zulu
+          cache: maven
       - run: mvnw package
