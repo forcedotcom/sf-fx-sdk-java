@@ -23,5 +23,7 @@ jobs:
           cache: maven
       - run: ./mvnw --no-transfer-progress package
       - run: |
+          cat ./target/apidocs/javadoc.sh
           cat ./target/apidocs/options
+          cat ./target/apidocs/packages
         if: ${{ always() }}
