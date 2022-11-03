@@ -22,9 +22,3 @@ jobs:
           distribution: zulu
           cache: maven
       - run: ./mvnw --no-transfer-progress clean package
-      - run: cat ./target/apidocs/javadoc.sh
-        if: ${{ always() }}
-      - run: cat ./target/apidocs/options
-        if: ${{ always() }}
-      - run: cat ./target/apidocs/packages
-        if: ${{ always() }}

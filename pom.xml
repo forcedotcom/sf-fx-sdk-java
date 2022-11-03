@@ -160,10 +160,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <source>8</source>
-                            <verbose>true</verbose>
-                            <debug>true</debug>
-                            <doclint>none</doclint>
+                            <doclint>all,-syntax</doclint>
                         </configuration>
                     </execution>
                 </executions>
