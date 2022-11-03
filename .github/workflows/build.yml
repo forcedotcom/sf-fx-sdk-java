@@ -23,6 +23,5 @@ jobs:
           cache: maven
       - run: ./mvnw --no-transfer-progress package
       - run: |
-          ls ./target
-          cat ./target/maven-javadoc-plugin-stale-data.txt
+          cat ./target/apidocs/options
         if: ${{ always() }}
