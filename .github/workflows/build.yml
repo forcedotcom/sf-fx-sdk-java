@@ -22,3 +22,7 @@ jobs:
           distribution: zulu
           cache: maven
       - run: ./mvnw --no-transfer-progress package
+      - run: |
+          ls ./target
+          cat ./target/maven-javadoc-plugin-stale-data.txt
+        if: ${{ always() }}
