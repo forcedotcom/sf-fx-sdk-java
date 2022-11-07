@@ -21,4 +21,4 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: zulu
           cache: maven
-      - run: ./mvnw --batch clean package
+      - run: ./mvnw --batch-mode clean package
