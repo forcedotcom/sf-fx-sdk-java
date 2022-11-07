@@ -10,8 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [11, 8]
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        version: [17, 11, 8]
+        os: [ubuntu-latest]
     name: Java ${{ matrix.version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -21,4 +21,4 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: zulu
           cache: maven
-      - run: ./mvnw --no-transfer-progress clean package
+      - run: ./mvnw --batch clean package
