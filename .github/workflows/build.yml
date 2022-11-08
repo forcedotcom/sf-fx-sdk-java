@@ -10,15 +10,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # avoiding the use of the zulu here because there is a bug in the
+        # v11 javadoc tool of their distribution that mistakenly attempts to
+        # parse annotations as javadoc tags
+        distribution: [temurin]
         version: [17, 11, 8]
         os: [ubuntu-latest]
-    name: Java ${{ matrix.version }} on ${{ matrix.os }}
+    name: Java ${{ matrix.version }} / ${{ matrix.distribution }} / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.version }}
-          distribution: zulu
+          distribution: ${{ matrix.distribution }}
           cache: maven
       - run: ./mvnw --batch-mode clean package

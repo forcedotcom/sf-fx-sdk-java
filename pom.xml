@@ -159,9 +159,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <doclint>all,-syntax</doclint>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
