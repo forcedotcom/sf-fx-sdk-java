@@ -11,14 +11,15 @@ jobs:
       fail-fast: false
       matrix:
         version: [17, 11, 8]
+        distribution: [temurin, zulu]
         os: [ubuntu-latest]
-    name: Java ${{ matrix.version }} on ${{ matrix.os }}
+    name: Java ${{ matrix.version }} / ${{ matrix.distribution }} / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.version }}
-          distribution: zulu
+          distribution: $${ matrix.distribution }}
           cache: maven
       - run: ./mvnw --batch-mode clean package
