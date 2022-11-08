@@ -5,7 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-/** */
+/**
+ * This module contains the error types that the {@link com.salesforce.functions.jvm.sdk.data.DataApi} and
+ * {@link com.salesforce.functions.jvm.sdk.data.UnitOfWork} can emit.
+ */
 @ParametersAreNonnullByDefault
 package com.salesforce.functions.jvm.sdk.data.error;
 
