@@ -6,8 +6,9 @@
  */
 
 /**
- * This module contains the error types that the {@link com.salesforce.functions.jvm.sdk.data.DataApi} and
- * {@link com.salesforce.functions.jvm.sdk.data.UnitOfWork} can emit.
+ * This module contains the error types that the {@link
+ * com.salesforce.functions.jvm.sdk.data.DataApi} and {@link
+ * com.salesforce.functions.jvm.sdk.data.UnitOfWork} can emit.
  */
 @ParametersAreNonnullByDefault
 package com.salesforce.functions.jvm.sdk.data.error;

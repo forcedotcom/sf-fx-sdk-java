@@ -5,9 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-/**
- * This module contains the SDK interfaces that support the Function invocation process.
- */
+/** This module contains the SDK interfaces that support the Function invocation process. */
 @ParametersAreNonnullByDefault
 package com.salesforce.functions.jvm.sdk;
 

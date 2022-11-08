@@ -6,7 +6,8 @@
  */
 
 /**
- * This module contains the interfaces that support query and persist operations against the Salesforce API.
+ * This module contains the interfaces that support query and persist operations against the
+ * Salesforce API.
  */
 @ParametersAreNonnullByDefault
 package com.salesforce.functions.jvm.sdk.data;
