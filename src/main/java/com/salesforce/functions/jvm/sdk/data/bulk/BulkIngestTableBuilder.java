@@ -8,6 +8,7 @@ package com.salesforce.functions.jvm.sdk.data.bulk;
 
 import com.salesforce.functions.jvm.sdk.data.Record;
 import java.util.Map;
+import java.util.function.Function;
 import javax.annotation.Nonnull;
 
 public interface BulkIngestTableBuilder {
@@ -22,6 +23,11 @@ public interface BulkIngestTableBuilder {
   @Nonnull
   @SuppressWarnings("unused")
   <T> BulkIngestTableBuilder addRow(T data, BulkDataMapper<T> mapper);
+
+  @Nonnull
+  @SuppressWarnings("unused")
+  <T> BulkIngestTableBuilder addRow(T data, Map<String, Function<T, String>> mapper);
+
 
   @Nonnull
   @SuppressWarnings("unused")
