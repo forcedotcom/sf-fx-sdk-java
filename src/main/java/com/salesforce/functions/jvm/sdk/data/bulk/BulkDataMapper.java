@@ -6,16 +6,11 @@
  */
 package com.salesforce.functions.jvm.sdk.data.bulk;
 
-import com.salesforce.functions.jvm.sdk.data.Record;
 import javax.annotation.Nonnull;
-import javax.annotation.concurrent.Immutable;
 
-@Immutable
-public interface SuccessfullyCreatedRecord extends Record {
-  @SuppressWarnings("unused")
-  boolean isCreated();
-
+@FunctionalInterface
+public interface BulkDataMapper<T> {
   @Nonnull
   @SuppressWarnings("unused")
-  String getId();
+  String mapField(T data, String fieldName);
 }

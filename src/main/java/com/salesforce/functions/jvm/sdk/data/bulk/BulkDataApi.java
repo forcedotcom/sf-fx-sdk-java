@@ -6,10 +6,7 @@
  */
 package com.salesforce.functions.jvm.sdk.data.bulk;
 
-import com.salesforce.functions.jvm.sdk.data.Record;
 import com.salesforce.functions.jvm.sdk.data.error.DataApiException;
-import java.util.Collection;
-import java.util.List;
 import javax.annotation.Nonnull;
 
 public interface BulkDataApi {
@@ -19,7 +16,7 @@ public interface BulkDataApi {
 
   @Nonnull
   @SuppressWarnings("unused")
-  BulkIngestReference ingest(Collection<Record> records) throws DataApiException;
+  BulkIngestReference ingest(BulkIngestTable table) throws DataApiException;
 
   @Nonnull
   @SuppressWarnings("unused")
@@ -43,16 +40,16 @@ public interface BulkDataApi {
 
   @Nonnull
   @SuppressWarnings("unused")
-  List<SuccessfullyCreatedRecord> getSuccessfulRecordResults(BulkIngestReference reference)
+  BulkIngestTable getSuccessfulRecordResults(BulkIngestReference reference) throws DataApiException;
+
+  @Nonnull
+  @SuppressWarnings("unused")
+  BulkIngestTable getFailedRecordResults(BulkIngestReference reference) throws DataApiException;
+
+  @Nonnull
+  @SuppressWarnings("unused")
+  BulkIngestTable getUnprocessedRecordResults(BulkIngestReference reference)
       throws DataApiException;
-
-  @Nonnull
-  @SuppressWarnings("unused")
-  List<FailedRecord> getFailedRecordResults(BulkIngestReference reference) throws DataApiException;
-
-  @Nonnull
-  @SuppressWarnings("unused")
-  List<Record> getUnprocessedRecordResults(BulkIngestReference reference) throws DataApiException;
 
   @Nonnull
   @SuppressWarnings("unused")
@@ -62,4 +59,8 @@ public interface BulkDataApi {
   @Nonnull
   @SuppressWarnings("unused")
   BulkQueryResult getMoreQueryResults(BulkQueryResult result) throws DataApiException;
+
+  @Nonnull
+  @SuppressWarnings("unused")
+  BulkIngestTableBuilder createBulkIngestTableBuilder(String... fieldNames);
 }
