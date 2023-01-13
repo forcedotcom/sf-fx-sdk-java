@@ -6,11 +6,11 @@
  */
 package com.salesforce.functions.jvm.sdk.data.bulk;
 
-import javax.annotation.Nonnull;
-
-@FunctionalInterface
-public interface BulkDataMapper<T> {
-  @Nonnull
-  @SuppressWarnings("unused")
-  String mapField(T data, String fieldName);
+/** The processing operation of a bulk ingest job. */
+public enum IngestOperation {
+  INSERT,
+  DELETE,
+  HARD_DELETE,
+  UPDATE,
+  UPSERT
 }

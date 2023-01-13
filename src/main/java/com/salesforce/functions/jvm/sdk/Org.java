@@ -7,7 +7,7 @@
 package com.salesforce.functions.jvm.sdk;
 
 import com.salesforce.functions.jvm.sdk.data.DataApi;
-import com.salesforce.functions.jvm.sdk.data.bulk.BulkDataApi;
+import com.salesforce.functions.jvm.sdk.data.bulk.BulkApi;
 import java.net.URI;
 import javax.annotation.Nonnull;
 
@@ -60,7 +60,7 @@ public interface Org {
 
   @Nonnull
   @SuppressWarnings("unused")
-  BulkDataApi getBulkDataApi();
+  BulkApi getBulkDataApi();
 
   /**
    * Returns the currently logged in user.

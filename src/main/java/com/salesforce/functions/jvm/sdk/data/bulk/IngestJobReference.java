@@ -12,11 +12,13 @@ package com.salesforce.functions.jvm.sdk.data.bulk;
  *
  * <p>All implementations must be immutable and therefore thread-safe.
  *
- * @see BulkDataApi#getInfo(BulkIngestReference)
- * @see BulkDataApi#getSuccessfulRecordResults(BulkIngestReference)
- * @see BulkDataApi#getFailedRecordResults(BulkIngestReference)
- * @see BulkDataApi#getUnprocessedRecordResults(BulkIngestReference)
- * @see BulkDataApi#abort(BulkIngestReference)
- * @see BulkDataApi#delete(BulkIngestReference)
+ * @see BulkApi#getJobInfo(IngestJobReference)
+ * @see BulkApi#getSuccessfulRecordResults(IngestJobReference)
+ * @see BulkApi#getFailedRecordResults(IngestJobReference)
+ * @see BulkApi#getUnprocessedRecordResults(IngestJobReference)
+ * @see BulkApi#abortJob(IngestJobReference)
+ * @see BulkApi#deleteJob(IngestJobReference)
  */
-public interface BulkIngestReference {}
+public interface IngestJobReference {
+  String getId();
+}

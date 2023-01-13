@@ -12,10 +12,10 @@ package com.salesforce.functions.jvm.sdk.data.bulk;
  *
  * <p>All implementations must be immutable and therefore thread-safe.
  *
- * @see BulkDataApi#getInfo(BulkQueryReference)
- * @see BulkDataApi#getQueryResults(BulkQueryReference, long)
- * @see BulkDataApi#getMoreQueryResults(BulkQueryResult)
- * @see BulkDataApi#abort(BulkQueryReference)
- * @see BulkDataApi#delete(BulkQueryReference)
+ * @see BulkApi#getJobInfo(QueryJobReference)
+ * @see BulkApi#getQueryJobResults(QueryJobReference, long)
+ * @see BulkApi#getMoreQueryResults(QueryJobResult)
+ * @see BulkApi#abortJob(QueryJobReference)
+ * @see BulkApi#deleteJob(QueryJobReference)
  */
-public interface BulkQueryReference {}
+public interface QueryJobReference {}

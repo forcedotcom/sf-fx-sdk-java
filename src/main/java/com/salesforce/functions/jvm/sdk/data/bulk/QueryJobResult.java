@@ -6,14 +6,12 @@
  */
 package com.salesforce.functions.jvm.sdk.data.bulk;
 
-import com.salesforce.functions.jvm.sdk.data.Record;
-import java.util.List;
 import javax.annotation.Nonnull;
 
-public interface BulkQueryResult {
+public interface QueryJobResult {
   /**
    * If true, no additional records can be retrieved from the query result. If false, one or more
-   * records remain to be retrieved. Use {@link BulkDataApi#getMoreQueryResults(BulkQueryResult)} to
+   * records remain to be retrieved. Use {@link BulkApi#getMoreQueryResults(QueryJobResult)} to
    * receive the next batch of records from this query result.
    *
    * @return If there are no more rows to be retrieved.
@@ -21,8 +19,12 @@ public interface BulkQueryResult {
   @SuppressWarnings("unused")
   boolean isDone();
 
+  /**
+   * Returns the queried data as {@link DataTable}.
+   *
+   * @return The queried data as {@link DataTable}.
+   */
   @Nonnull
   @SuppressWarnings("unused")
-  // Is Record the correct type here? Can a bulk query have sub query results?
-  List<Record> getRecords();
+  DataTable getDataTable();
 }
