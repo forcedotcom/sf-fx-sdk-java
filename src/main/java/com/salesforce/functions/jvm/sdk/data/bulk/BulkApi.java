@@ -7,6 +7,7 @@
 package com.salesforce.functions.jvm.sdk.data.bulk;
 
 import com.salesforce.functions.jvm.sdk.data.error.DataApiException;
+import java.util.List;
 import javax.annotation.Nonnull;
 
 public interface BulkApi {
@@ -236,23 +237,16 @@ public interface BulkApi {
   @SuppressWarnings("unused")
   QueryJobResult getMoreQueryResults(QueryJobResult result) throws DataApiException;
 
-  @SuppressWarnings("unused")
-  void waitForJobState(QueryJobReference reference, IngestJobState state)
-      throws DataApiException, InterruptedException;
-
-  @SuppressWarnings("unused")
-  void waitForJobState(IngestJobReference reference, IngestJobState state)
-      throws DataApiException, InterruptedException;
-
   /**
-   * Convenience method for small to mid-sized ingest jobs. Will create new ingest job, upload the
-   * data to it and closes it afterwards. See the individual methods for details.
+   * Convenience method for ingest jobs. It will split the given data into chucks that conform to
+   * the size limits, create new ingest jobs for each up them, upload the data to them and closes
+   * them afterwards. See the individual methods for details.
    *
    * @param objectType The object type for the data being processed. Use only a single object type
    *     per job.
    * @param operation The processing operation for the job.
    * @param table The data to upload.
-   * @return A reference object to the created job.
+   * @return A list of reference objects to the created jobs.
    * @throws DataApiException If an API error occurred during the operation.
    * @see BulkApi#createIngestJob(String, IngestOperation)
    * @see BulkApi#uploadJobData(IngestJobReference, DataTable)
@@ -260,7 +254,7 @@ public interface BulkApi {
    */
   @Nonnull
   @SuppressWarnings("unused")
-  IngestJobReference createSimpleIngestJob(
+  List<IngestJobReference> createSimpleIngestJob(
       String objectType, IngestOperation operation, DataTable table) throws DataApiException;
 
   /**
@@ -273,4 +267,17 @@ public interface BulkApi {
   @Nonnull
   @SuppressWarnings("unused")
   DataTableBuilder createDataTableBuilder(String... fieldNames);
+
+  /**
+   * Splits the given data table into sub tables that, when used with an ingest job, do not exceed
+   * the given size. This is useful when using the low-level ingest methods that require the data
+   * table to not exceed a certain size.
+   *
+   * @param dataTable The table to split.
+   * @param byteSize The size in bytes each table should have at most.
+   * @return The given data table split in sub-tables.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  List<DataTable> splitDataTable(DataTable dataTable, long byteSize);
 }
