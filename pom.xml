@@ -6,7 +6,7 @@
 
     <groupId>com.salesforce.functions</groupId>
     <artifactId>sf-fx-sdk-java</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.2-SNAPSHOT</version>
 
     <name>sf-fx-sdk-java</name>
     <description>Salesforce Function SDK for Java</description>
