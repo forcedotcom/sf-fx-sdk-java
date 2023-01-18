@@ -356,4 +356,20 @@ public interface RecordAccessor {
   @Nonnull
   @SuppressWarnings("unused")
   Optional<ByteBuffer> getBinaryField(String name);
+
+  /**
+   * Returns the value of a record field as a {@link Record}. The field name is compared
+   * case-insensitively.
+   *
+   * <p>Field values that are not record data will not be converted to a {@link Record}. Using this
+   * method on a non-record field will cause a {@link FieldConversionException} to be thrown.
+   *
+   * @param name The name of the field to obtain the value from.
+   * @throws FieldConversionException If the value is not record data.
+   * @return The value of the record field as a {@link Record} or empty {@link Optional} if the
+   *     field is not present or null.
+   */
+  @Nonnull
+  @SuppressWarnings("unused")
+  Optional<Record> getRecordField(String name);
 }
