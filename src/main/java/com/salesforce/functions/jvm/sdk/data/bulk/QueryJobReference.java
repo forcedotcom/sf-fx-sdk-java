@@ -18,4 +18,6 @@ package com.salesforce.functions.jvm.sdk.data.bulk;
  * @see BulkApi#abortJob(QueryJobReference)
  * @see BulkApi#deleteJob(QueryJobReference)
  */
-public interface QueryJobReference {}
+public interface QueryJobReference {
+  String getId();
+}
