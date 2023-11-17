@@ -58,8 +58,6 @@ jobs:
           commit-message: Prepare release v${{ steps.new-version.outputs.version }}
           branch: prepare-release
           delete-branch: true
-          committer: ${{ vars.LINGUIST_GH_APP_USERNAME }} <${{ vars.LINGUIST_GH_APP_EMAIL }}>
-          author: ${{ vars.LINGUIST_GH_APP_USERNAME }} <${{ vars.LINGUIST_GH_APP_EMAIL }}>
 
       - name: Configure pull request
         if: steps.pr.outputs.pull-request-operation == 'created'
