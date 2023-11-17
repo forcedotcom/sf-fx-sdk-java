@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+
+## [1.1.2] - 2023-11-17
+
 ### Changed
 
 - Dependency updates.
@@ -15,5 +18,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Ability to read a field as a `Record` object from query result sets when a nested object is returned. ([#106](https://github.com/forcedotcom/sf-fx-sdk-java/pull/106))
 
-[unreleased]: https://github.com/forcedotcom/sf-fx-sdk-java/compare/v1.1.1...HEAD
+[unreleased]: https://github.com/forcedotcom/sf-fx-sdk-java/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/forcedotcom/sf-fx-sdk-java/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/forcedotcom/sf-fx-sdk-java/compare/v1.1.0...v1.1.1
